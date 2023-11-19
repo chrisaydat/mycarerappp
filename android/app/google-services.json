@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "382299148303",
+    "project_id": "mycarermobileapp",
+    "storage_bucket": "mycarermobileapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:382299148303:android:a9f9e9409ee284bcbcd37a",
+        "android_client_info": {
+          "package_name": "com.mycompany.mycarer"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCgH6QGwnlQujAjU4WaKLsrp1yJolLQrS8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
