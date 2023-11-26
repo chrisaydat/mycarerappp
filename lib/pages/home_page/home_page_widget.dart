@@ -23,6 +23,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
     super.initState();
     _model = createModel(context, () => HomePageModel());
 
+    logFirebaseEvent('screen_view', parameters: {'screen_name': 'HomePage'});
     _model.textController ??= TextEditingController();
     _model.textFieldFocusNode ??= FocusNode();
   }

@@ -1,4 +1,4 @@
-package com.mycompany.mycarer
+package org.aydat.mycarer
 
 import io.flutter.embedding.android.FlutterActivity
 
