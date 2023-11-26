@@ -12,7 +12,20 @@
           "package_name": "com.mycompany.mycarer"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "382299148303-64111nk1ii5opr0ups14hjd8nei6svpt.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.mycompany.mycarer",
+            "certificate_hash": "9bbb3186b2189ef16d8f272bdab59362c395cbb4"
+          }
+        },
+        {
+          "client_id": "382299148303-a8d0laprdk6vakg5bgmqi1iop4kk12ve.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyCgH6QGwnlQujAjU4WaKLsrp1yJolLQrS8"
@@ -20,7 +33,63 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "382299148303-a8d0laprdk6vakg5bgmqi1iop4kk12ve.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "382299148303-27914uk0mcr562to5c61kaadbqc6cr2i.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.mycompany.mycarer"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:382299148303:android:28364a03c979ebe2bcd37a",
+        "android_client_info": {
+          "package_name": "org.aydat.mycarer"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "382299148303-j9oc8ocvslo0qn9m0c325fuei1qlmsep.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "org.aydat.mycarer",
+            "certificate_hash": "9bbb3186b2189ef16d8f272bdab59362c395cbb4"
+          }
+        },
+        {
+          "client_id": "382299148303-a8d0laprdk6vakg5bgmqi1iop4kk12ve.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCgH6QGwnlQujAjU4WaKLsrp1yJolLQrS8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "382299148303-a8d0laprdk6vakg5bgmqi1iop4kk12ve.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "382299148303-27914uk0mcr562to5c61kaadbqc6cr2i.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.mycompany.mycarer"
+              }
+            }
+          ]
         }
       }
     }

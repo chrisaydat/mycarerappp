@@ -24,6 +24,7 @@ class _LoginpageWidgetState extends State<LoginpageWidget> {
     super.initState();
     _model = createModel(context, () => LoginpageModel());
 
+    logFirebaseEvent('screen_view', parameters: {'screen_name': 'loginpage'});
     _model.textController1 ??= TextEditingController();
     _model.textFieldFocusNode1 ??= FocusNode();
 
@@ -283,6 +284,52 @@ class _LoginpageWidgetState extends State<LoginpageWidget> {
                                     width: 2.0,
                                   ),
                                   borderRadius: BorderRadius.circular(12.0),
+                                ),
+                              ),
+                            ),
+                            Align(
+                              alignment: const AlignmentDirectional(0.00, 0.00),
+                              child: InkWell(
+                                splashColor: Colors.transparent,
+                                focusColor: Colors.transparent,
+                                hoverColor: Colors.transparent,
+                                highlightColor: Colors.transparent,
+                                onTap: () async {
+                                  logFirebaseEvent(
+                                      'LOGINPAGE_PAGE_RichText_b6y4oefp_ON_TAP');
+                                  logFirebaseEvent('RichText_navigate_to');
+
+                                  context.pushNamed('createaccount');
+                                },
+                                child: RichText(
+                                  textScaleFactor:
+                                      MediaQuery.of(context).textScaleFactor,
+                                  text: TextSpan(
+                                    children: [
+                                      TextSpan(
+                                        text: 'My Carer',
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .override(
+                                              fontFamily: 'Readex Pro',
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .primaryText,
+                                              fontWeight: FontWeight.normal,
+                                            ),
+                                      ),
+                                      TextSpan(
+                                        text: ' - Sign Up Here',
+                                        style: TextStyle(
+                                          color: FlutterFlowTheme.of(context)
+                                              .primary,
+                                          fontWeight: FontWeight.w800,
+                                        ),
+                                      )
+                                    ],
+                                    style:
+                                        FlutterFlowTheme.of(context).bodyMedium,
+                                  ),
                                 ),
                               ),
                             ),

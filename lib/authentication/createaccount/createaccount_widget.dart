@@ -24,6 +24,8 @@ class _CreateaccountWidgetState extends State<CreateaccountWidget> {
     super.initState();
     _model = createModel(context, () => CreateaccountModel());
 
+    logFirebaseEvent('screen_view',
+        parameters: {'screen_name': 'createaccount'});
     _model.emailTextController ??= TextEditingController();
     _model.textFieldFocusNode1 ??= FocusNode();
 
@@ -247,6 +249,9 @@ class _CreateaccountWidgetState extends State<CreateaccountWidget> {
                         const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 16.0),
                     child: FFButtonWidget(
                       onPressed: () async {
+                        logFirebaseEvent(
+                            'CREATEACCOUNT_CREATE_ACCOUNT_BTN_ON_TAP');
+                        logFirebaseEvent('Button_auth');
                         GoRouter.of(context).prepareAuthEvent();
                         if (_model.passwordTextController.text !=
                             _model.confirmPasswordTextController.text) {
@@ -288,6 +293,32 @@ class _CreateaccountWidgetState extends State<CreateaccountWidget> {
                         elevation: 3.0,
                         borderRadius: BorderRadius.circular(12.0),
                       ),
+                    ),
+                  ),
+                  RichText(
+                    textScaleFactor: MediaQuery.of(context).textScaleFactor,
+                    text: TextSpan(
+                      children: [
+                        TextSpan(
+                          text: 'My Carer',
+                          style: FlutterFlowTheme.of(context)
+                              .bodyMedium
+                              .override(
+                                fontFamily: 'Readex Pro',
+                                color: FlutterFlowTheme.of(context).primaryText,
+                                fontWeight: FontWeight.normal,
+                              ),
+                        ),
+                        const TextSpan(
+                          text: ' - Login Here',
+                          style: TextStyle(),
+                        )
+                      ],
+                      style: FlutterFlowTheme.of(context).bodyMedium.override(
+                            fontFamily: 'Readex Pro',
+                            color: FlutterFlowTheme.of(context).primary,
+                            fontWeight: FontWeight.bold,
+                          ),
                     ),
                   ),
                 ],

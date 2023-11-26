@@ -2,10 +2,11 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import '/backend/backend.dart';
 
 import '/auth/base_auth_user_provider.dart';
 
+import '/backend/push_notifications/push_notifications_handler.dart'
+    show PushNotificationsHandler;
 import '/index.dart';
 import '/main.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -89,11 +90,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               : const HomePageWidget(),
         ),
         FFRoute(
-          name: 'Onboarding',
-          path: '/onboarding',
-          builder: (context, params) => const OnboardingWidget(),
-        ),
-        FFRoute(
           name: 'createaccount',
           path: '/createaccount',
           builder: (context, params) => const CreateaccountWidget(),
@@ -111,38 +107,16 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               : const ProfilepageWidget(),
         ),
         FFRoute(
-          name: 'chat_Main',
-          path: '/chatMain',
-          builder: (context, params) => params.isEmpty
-              ? const NavBarPage(initialPage: 'chat_Main')
-              : const ChatMainWidget(),
-        ),
-        FFRoute(
-          name: 'chat_Details',
-          path: '/chatDetails',
-          asyncParams: {
-            'chatRef': getDoc(['chats'], ChatsRecord.fromSnapshot),
-          },
-          builder: (context, params) => ChatDetailsWidget(
-            chatRef: params.getParam('chatRef', ParamType.Document),
-          ),
-        ),
-        FFRoute(
-          name: 'chat_InviteUsers',
-          path: '/chatInviteUsers',
-          asyncParams: {
-            'chatRef': getDoc(['chats'], ChatsRecord.fromSnapshot),
-          },
-          builder: (context, params) => ChatInviteUsersWidget(
-            chatRef: params.getParam('chatRef', ParamType.Document),
-          ),
-        ),
-        FFRoute(
           name: 'bookingpage',
           path: '/bookingpage',
           builder: (context, params) => params.isEmpty
               ? const NavBarPage(initialPage: 'bookingpage')
               : const BookingpageWidget(),
+        ),
+        FFRoute(
+          name: 'onboarding',
+          path: '/onboarding',
+          builder: (context, params) => const OnboardingWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );
@@ -323,13 +297,13 @@ class FFRoute {
               : builder(context, ffParams);
           final child = appStateNotifier.loading
               ? Container(
-                  color: Colors.transparent,
+                  color: Colors.black,
                   child: Image.asset(
-                    'assets/images/mycarersplashscreen.png',
-                    fit: BoxFit.fill,
+                    'assets/images/fd8258e3-8084-4e5f-a02f-35d79716e0de.JPG',
+                    fit: BoxFit.contain,
                   ),
                 )
-              : page;
+              : PushNotificationsHandler(child: page);
 
           final transitionInfo = state.transitionInfo;
           return transitionInfo.hasTransition

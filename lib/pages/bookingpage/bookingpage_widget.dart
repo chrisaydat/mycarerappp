@@ -21,6 +21,8 @@ class _BookingpageWidgetState extends State<BookingpageWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => BookingpageModel());
+
+    logFirebaseEvent('screen_view', parameters: {'screen_name': 'bookingpage'});
   }
 
   @override
@@ -51,13 +53,17 @@ class _BookingpageWidgetState extends State<BookingpageWidget> {
         appBar: AppBar(
           backgroundColor: FlutterFlowTheme.of(context).secondary,
           automaticallyImplyLeading: false,
-          title: Text(
-            'Page Title',
-            style: FlutterFlowTheme.of(context).headlineMedium.override(
-                  fontFamily: 'Outfit',
-                  color: Colors.white,
-                  fontSize: 22.0,
-                ),
+          title: Align(
+            alignment: const AlignmentDirectional(0.00, 0.00),
+            child: Text(
+              'Bookings',
+              style: FlutterFlowTheme.of(context).headlineMedium.override(
+                    fontFamily: 'Outfit',
+                    color: Colors.black,
+                    fontSize: 22.0,
+                    fontWeight: FontWeight.normal,
+                  ),
+            ),
           ),
           actions: const [],
           centerTitle: false,
