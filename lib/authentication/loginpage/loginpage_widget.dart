@@ -1,3 +1,4 @@
+import '/auth/firebase_auth/auth_util.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
@@ -25,10 +26,10 @@ class _LoginpageWidgetState extends State<LoginpageWidget> {
     _model = createModel(context, () => LoginpageModel());
 
     logFirebaseEvent('screen_view', parameters: {'screen_name': 'loginpage'});
-    _model.textController1 ??= TextEditingController();
+    _model.emailTextController ??= TextEditingController();
     _model.textFieldFocusNode1 ??= FocusNode();
 
-    _model.textController2 ??= TextEditingController();
+    _model.passwordTextController ??= TextEditingController();
     _model.textFieldFocusNode2 ??= FocusNode();
   }
 
@@ -120,7 +121,7 @@ class _LoginpageWidgetState extends State<LoginpageWidget> {
                               padding: const EdgeInsetsDirectional.fromSTEB(
                                   0.0, 0.0, 0.0, 16.0),
                               child: TextFormField(
-                                controller: _model.textController1,
+                                controller: _model.emailTextController,
                                 focusNode: _model.textFieldFocusNode1,
                                 obscureText: false,
                                 decoration: InputDecoration(
@@ -158,7 +159,7 @@ class _LoginpageWidgetState extends State<LoginpageWidget> {
                                   ),
                                 ),
                                 style: FlutterFlowTheme.of(context).bodyLarge,
-                                validator: _model.textController1Validator
+                                validator: _model.emailTextControllerValidator
                                     .asValidator(context),
                               ),
                             ),
@@ -166,7 +167,7 @@ class _LoginpageWidgetState extends State<LoginpageWidget> {
                               padding: const EdgeInsetsDirectional.fromSTEB(
                                   0.0, 0.0, 0.0, 16.0),
                               child: TextFormField(
-                                controller: _model.textController2,
+                                controller: _model.passwordTextController,
                                 focusNode: _model.textFieldFocusNode2,
                                 obscureText: !_model.passwordVisibility,
                                 decoration: InputDecoration(
@@ -219,7 +220,8 @@ class _LoginpageWidgetState extends State<LoginpageWidget> {
                                   ),
                                 ),
                                 style: FlutterFlowTheme.of(context).bodyLarge,
-                                validator: _model.textController2Validator
+                                validator: _model
+                                    .passwordTextControllerValidator
                                     .asValidator(context),
                               ),
                             ),
@@ -227,8 +229,24 @@ class _LoginpageWidgetState extends State<LoginpageWidget> {
                               padding: const EdgeInsetsDirectional.fromSTEB(
                                   0.0, 0.0, 0.0, 16.0),
                               child: FFButtonWidget(
-                                onPressed: () {
-                                  print('Button pressed ...');
+                                onPressed: () async {
+                                  logFirebaseEvent(
+                                      'LOGINPAGE_PAGE_LOG_IN_BTN_ON_TAP');
+                                  logFirebaseEvent('Button_auth');
+                                  GoRouter.of(context).prepareAuthEvent();
+
+                                  final user =
+                                      await authManager.signInWithEmail(
+                                    context,
+                                    _model.emailTextController.text,
+                                    _model.passwordTextController.text,
+                                  );
+                                  if (user == null) {
+                                    return;
+                                  }
+
+                                  context.goNamedAuth(
+                                      'HomePage', context.mounted);
                                 },
                                 text: 'Log In',
                                 options: FFButtonOptions(
