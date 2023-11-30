@@ -115,6 +115,26 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'onboarding',
           path: '/onboarding',
           builder: (context, params) => const OnboardingWidget(),
+        ),
+        FFRoute(
+          name: 'notificationscreen',
+          path: '/notificationscreen',
+          builder: (context, params) => const NotificationscreenWidget(),
+        ),
+        FFRoute(
+          name: 'editprofilescreen',
+          path: '/editprofilescreen',
+          builder: (context, params) => const EditprofilescreenWidget(),
+        ),
+        FFRoute(
+          name: 'termsofservicescreen',
+          path: '/termsofservicescreen',
+          builder: (context, params) => const TermsofservicescreenWidget(),
+        ),
+        FFRoute(
+          name: 'caregiversscreen',
+          path: '/caregiversscreen',
+          builder: (context, params) => const CaregiversscreenWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );
