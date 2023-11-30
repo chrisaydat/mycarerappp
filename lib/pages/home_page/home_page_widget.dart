@@ -234,7 +234,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                         ),
                         Padding(
                           padding: const EdgeInsetsDirectional.fromSTEB(
-                              200.0, 0.0, 0.0, 0.0),
+                              250.0, 0.0, 0.0, 0.0),
                           child: FlutterFlowIconButton(
                             borderColor: FlutterFlowTheme.of(context).primary,
                             borderRadius: 20.0,
@@ -340,48 +340,6 @@ class _HomePageWidgetState extends State<HomePageWidget>
                               ],
                             ),
                           ),
-                          Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
-                                12.0, 0.0, 16.0, 8.0),
-                            child: Row(
-                              mainAxisSize: MainAxisSize.max,
-                              children: [
-                                Card(
-                                  clipBehavior: Clip.antiAliasWithSaveLayer,
-                                  color: const Color(0xFFF1F4F8),
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(40.0),
-                                  ),
-                                  child: const Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        8.0, 8.0, 8.0, 8.0),
-                                    child: Icon(
-                                      Icons.access_time_rounded,
-                                      color: Color(0xFF57636C),
-                                      size: 20.0,
-                                    ),
-                                  ),
-                                ),
-                                Expanded(
-                                  child: Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
-                                        12.0, 0.0, 0.0, 0.0),
-                                    child: Text(
-                                      'In Preparation',
-                                      style: FlutterFlowTheme.of(context)
-                                          .bodySmall
-                                          .override(
-                                            fontFamily: 'Plus Jakarta Sans',
-                                            color: const Color(0xFF14181B),
-                                            fontSize: 12.0,
-                                            fontWeight: FontWeight.w500,
-                                          ),
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
                         ],
                       ),
                     ),
@@ -468,48 +426,6 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                     width: 160.0,
                                     height: 100.0,
                                     fit: BoxFit.contain,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                          Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
-                                12.0, 0.0, 16.0, 8.0),
-                            child: Row(
-                              mainAxisSize: MainAxisSize.max,
-                              children: [
-                                Card(
-                                  clipBehavior: Clip.antiAliasWithSaveLayer,
-                                  color: const Color(0xFFF1F4F8),
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(40.0),
-                                  ),
-                                  child: const Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        8.0, 8.0, 8.0, 8.0),
-                                    child: Icon(
-                                      Icons.access_time_rounded,
-                                      color: Color(0xFF57636C),
-                                      size: 20.0,
-                                    ),
-                                  ),
-                                ),
-                                Expanded(
-                                  child: Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
-                                        12.0, 0.0, 0.0, 0.0),
-                                    child: Text(
-                                      'In Preparation',
-                                      style: FlutterFlowTheme.of(context)
-                                          .bodySmall
-                                          .override(
-                                            fontFamily: 'Plus Jakarta Sans',
-                                            color: const Color(0xFF14181B),
-                                            fontSize: 12.0,
-                                            fontWeight: FontWeight.w500,
-                                          ),
-                                    ),
                                   ),
                                 ),
                               ],
