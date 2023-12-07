@@ -135,6 +135,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'caregiversscreen',
           path: '/caregiversscreen',
           builder: (context, params) => const CaregiversscreenWidget(),
+        ),
+        FFRoute(
+          name: 'caregiverfullprofile',
+          path: '/caregiverfullprofile',
+          builder: (context, params) => const CaregiverfullprofileWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );
@@ -315,10 +320,10 @@ class FFRoute {
               : builder(context, ffParams);
           final child = appStateNotifier.loading
               ? Container(
-                  color: Colors.black,
+                  color: Colors.transparent,
                   child: Image.asset(
-                    'assets/images/fd8258e3-8084-4e5f-a02f-35d79716e0de.JPG',
-                    fit: BoxFit.contain,
+                    'assets/images/mycarersplash.png',
+                    fit: BoxFit.cover,
                   ),
                 )
               : page;

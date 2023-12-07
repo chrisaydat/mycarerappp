@@ -50,6 +50,11 @@ class CaregiversRecord extends FirestoreRecord {
   List<String> get availability => _availability ?? const [];
   bool hasAvailability() => _availability != null;
 
+  // "photoURL" field.
+  String? _photoURL;
+  String get photoURL => _photoURL ?? '';
+  bool hasPhotoURL() => _photoURL != null;
+
   void _initializeFields() {
     _name = snapshotData['name'] as String?;
     _location = snapshotData['location'] as String?;
@@ -58,6 +63,7 @@ class CaregiversRecord extends FirestoreRecord {
     _bio = snapshotData['bio'] as String?;
     _ratings = castToType<double>(snapshotData['ratings']);
     _availability = getDataList(snapshotData['availability']);
+    _photoURL = snapshotData['photoURL'] as String?;
   }
 
   static CollectionReference get collection =>
@@ -101,6 +107,7 @@ Map<String, dynamic> createCaregiversRecordData({
   String? certifications,
   String? bio,
   double? ratings,
+  String? photoURL,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -110,6 +117,7 @@ Map<String, dynamic> createCaregiversRecordData({
       'certifications': certifications,
       'bio': bio,
       'ratings': ratings,
+      'photoURL': photoURL,
     }.withoutNulls,
   );
 
@@ -128,7 +136,8 @@ class CaregiversRecordDocumentEquality implements Equality<CaregiversRecord> {
         e1?.certifications == e2?.certifications &&
         e1?.bio == e2?.bio &&
         e1?.ratings == e2?.ratings &&
-        listEquality.equals(e1?.availability, e2?.availability);
+        listEquality.equals(e1?.availability, e2?.availability) &&
+        e1?.photoURL == e2?.photoURL;
   }
 
   @override
@@ -139,7 +148,8 @@ class CaregiversRecordDocumentEquality implements Equality<CaregiversRecord> {
         e?.certifications,
         e?.bio,
         e?.ratings,
-        e?.availability
+        e?.availability,
+        e?.photoURL
       ]);
 
   @override

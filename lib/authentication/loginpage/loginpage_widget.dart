@@ -296,7 +296,7 @@ class _LoginpageWidgetState extends State<LoginpageWidget> {
                                     textStyle: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
-                                          fontFamily: 'Readex Pro',
+                                          fontFamily: 'Inter',
                                           fontWeight: FontWeight.bold,
                                         ),
                                     elevation: 0.0,
@@ -333,7 +333,7 @@ class _LoginpageWidgetState extends State<LoginpageWidget> {
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
-                                                fontFamily: 'Readex Pro',
+                                                fontFamily: 'Inter',
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .primaryText,

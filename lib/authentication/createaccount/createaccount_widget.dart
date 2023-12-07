@@ -305,7 +305,7 @@ class _CreateaccountWidgetState extends State<CreateaccountWidget> {
                             style: FlutterFlowTheme.of(context)
                                 .bodyMedium
                                 .override(
-                                  fontFamily: 'Readex Pro',
+                                  fontFamily: 'Inter',
                                   color:
                                       FlutterFlowTheme.of(context).primaryText,
                                   fontWeight: FontWeight.normal,
@@ -317,7 +317,7 @@ class _CreateaccountWidgetState extends State<CreateaccountWidget> {
                           )
                         ],
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
-                              fontFamily: 'Readex Pro',
+                              fontFamily: 'Inter',
                               color: FlutterFlowTheme.of(context).primary,
                               fontWeight: FontWeight.bold,
                             ),
