@@ -1,3 +1,4 @@
+import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
@@ -53,6 +54,37 @@ class _TermsofservicescreenWidgetState
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+        appBar: AppBar(
+          backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
+          automaticallyImplyLeading: false,
+          title: Text(
+            'Terms of service',
+            style: FlutterFlowTheme.of(context).headlineMedium,
+          ),
+          actions: [
+            Padding(
+              padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 12.0, 0.0),
+              child: FlutterFlowIconButton(
+                borderColor: Colors.transparent,
+                borderRadius: 30.0,
+                borderWidth: 1.0,
+                buttonSize: 60.0,
+                icon: Icon(
+                  Icons.close,
+                  color: FlutterFlowTheme.of(context).secondaryText,
+                  size: 30.0,
+                ),
+                onPressed: () async {
+                  logFirebaseEvent('TERMSOFSERVICESCREEN_close_ICN_ON_TAP');
+                  logFirebaseEvent('IconButton_navigate_back');
+                  context.safePop();
+                },
+              ),
+            ),
+          ],
+          centerTitle: false,
+          elevation: 0.0,
+        ),
         body: SafeArea(
           top: true,
           child: Padding(
@@ -71,7 +103,7 @@ class _TermsofservicescreenWidgetState
                   Text(
                     'Please read these terms and conditions carefully before using the HomeCare app. By accessing or using the app, you agree to be bound by these terms and conditions. If you do not agree with any part of these terms and conditions, then you may not access the app.',
                     style: FlutterFlowTheme.of(context).bodySmall.override(
-                          fontFamily: 'Readex Pro',
+                          fontFamily: 'Inter',
                           color: FlutterFlowTheme.of(context).secondaryText,
                         ),
                   ),
@@ -89,7 +121,7 @@ class _TermsofservicescreenWidgetState
                   Text(
                     'By accessing or using the HomeCare app, you agree to be bound by these Terms of Service. If you do not agree to all the terms and conditions of this agreement, then you may not access the app.',
                     style: FlutterFlowTheme.of(context).bodySmall.override(
-                          fontFamily: 'Readex Pro',
+                          fontFamily: 'Inter',
                           color: FlutterFlowTheme.of(context).secondaryText,
                         ),
                   ),
@@ -107,7 +139,7 @@ class _TermsofservicescreenWidgetState
                   Text(
                     'The HomeCare app is intended for use by individuals aged 18 and older. By accessing or using the app, you represent and warrant that you are at least 18 years old.',
                     style: FlutterFlowTheme.of(context).bodySmall.override(
-                          fontFamily: 'Readex Pro',
+                          fontFamily: 'Inter',
                           color: FlutterFlowTheme.of(context).secondaryText,
                         ),
                   ),
@@ -125,7 +157,7 @@ class _TermsofservicescreenWidgetState
                   Text(
                     'Your privacy is important to us. Please refer to our Privacy Policy for information on how we collect, use, and disclose your personal information.',
                     style: FlutterFlowTheme.of(context).bodySmall.override(
-                          fontFamily: 'Readex Pro',
+                          fontFamily: 'Inter',
                           color: FlutterFlowTheme.of(context).secondaryText,
                         ),
                   ),
@@ -143,7 +175,7 @@ class _TermsofservicescreenWidgetState
                   Text(
                     'The HomeCare app and its original content, features, and functionality are owned by HomeCare and are protected by international copyright, trademark, patent, trade secret, and other intellectual property or proprietary rights laws.',
                     style: FlutterFlowTheme.of(context).bodySmall.override(
-                          fontFamily: 'Readex Pro',
+                          fontFamily: 'Inter',
                           color: FlutterFlowTheme.of(context).secondaryText,
                         ),
                   ),
@@ -161,7 +193,7 @@ class _TermsofservicescreenWidgetState
                   Text(
                     'We may terminate or suspend your access to the HomeCare app immediately, without prior notice or liability, for any reason whatsoever, including without limitation if you breach the Terms.',
                     style: FlutterFlowTheme.of(context).bodySmall.override(
-                          fontFamily: 'Readex Pro',
+                          fontFamily: 'Inter',
                           color: FlutterFlowTheme.of(context).secondaryText,
                         ),
                   ),
@@ -179,7 +211,7 @@ class _TermsofservicescreenWidgetState
                   Text(
                     'These Terms shall be governed and construed in accordance with the laws of your country, without regard to its conflict of law provisions.',
                     style: FlutterFlowTheme.of(context).bodySmall.override(
-                          fontFamily: 'Readex Pro',
+                          fontFamily: 'Inter',
                           color: FlutterFlowTheme.of(context).secondaryText,
                         ),
                   ),
@@ -197,7 +229,7 @@ class _TermsofservicescreenWidgetState
                   Text(
                     'We reserve the right, at our sole discretion, to modify or replace these Terms at any time. If a revision is material, we will provide at least 30 days\' notice prior to any new terms taking effect. What constitutes a material change will be determined at our sole discretion.',
                     style: FlutterFlowTheme.of(context).bodySmall.override(
-                          fontFamily: 'Readex Pro',
+                          fontFamily: 'Inter',
                           color: FlutterFlowTheme.of(context).secondaryText,
                         ),
                   ),
@@ -215,7 +247,7 @@ class _TermsofservicescreenWidgetState
                   Text(
                     'If you have any questions about these Terms, please contact us at support@homecareapp.com.',
                     style: FlutterFlowTheme.of(context).bodySmall.override(
-                          fontFamily: 'Readex Pro',
+                          fontFamily: 'Inter',
                           color: FlutterFlowTheme.of(context).secondaryText,
                         ),
                   ),
@@ -233,6 +265,12 @@ class _TermsofservicescreenWidgetState
                             value: _model.switchValue ??= true,
                             onChanged: (newValue) async {
                               setState(() => _model.switchValue = newValue);
+                              if (newValue) {
+                                logFirebaseEvent(
+                                    'TERMSOFSERVICESCREEN_Switch_kjvonnuo_ON_');
+                                logFirebaseEvent('Switch_navigate_back');
+                                context.safePop();
+                              }
                             },
                             activeColor:
                                 FlutterFlowTheme.of(context).primaryText,
@@ -251,7 +289,7 @@ class _TermsofservicescreenWidgetState
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .override(
-                                    fontFamily: 'Readex Pro',
+                                    fontFamily: 'Inter',
                                     color: FlutterFlowTheme.of(context)
                                         .primaryText,
                                   ),

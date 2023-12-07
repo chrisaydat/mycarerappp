@@ -16,3 +16,5 @@ export '/profilescreens/termsofservicescreen/termsofservicescreen_widget.dart'
     show TermsofservicescreenWidget;
 export '/pages/caregiversscreen/caregiversscreen_widget.dart'
     show CaregiversscreenWidget;
+export '/pages/caregiverfullprofile/caregiverfullprofile_widget.dart'
+    show CaregiverfullprofileWidget;

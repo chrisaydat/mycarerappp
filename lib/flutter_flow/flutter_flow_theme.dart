@@ -125,8 +125,8 @@ class LightModeTheme extends FlutterFlowTheme {
   @Deprecated('Use tertiary instead')
   Color get tertiaryColor => tertiary;
 
-  late Color primary = const Color(0xFF82B2B2);
-  late Color secondary = const Color(0xFFA1D1BC);
+  late Color primary = const Color(0xFF1DCED4);
+  late Color secondary = const Color(0xFFFF5C00);
   late Color tertiary = const Color(0xFFDEDEC0);
   late Color alternate = const Color(0xFF000000);
   late Color primaryText = const Color(0xFF14181B);
@@ -181,26 +181,29 @@ class ThemeTypography extends Typography {
 
   final FlutterFlowTheme theme;
 
-  String get displayLargeFamily => 'Outfit';
+  String get displayLargeFamily => 'Inter';
   TextStyle get displayLarge => GoogleFonts.getFont(
-        'Outfit',
+        'Inter',
         color: theme.primaryText,
-        fontWeight: FontWeight.normal,
-        fontSize: 64.0,
+        fontWeight: FontWeight.bold,
+        fontSize: 20.0,
+        fontStyle: FontStyle.normal,
       );
-  String get displayMediumFamily => 'Outfit';
+  String get displayMediumFamily => 'Inter';
   TextStyle get displayMedium => GoogleFonts.getFont(
-        'Outfit',
+        'Inter',
         color: theme.primaryText,
-        fontWeight: FontWeight.normal,
-        fontSize: 44.0,
+        fontWeight: FontWeight.bold,
+        fontSize: 18.0,
+        fontStyle: FontStyle.normal,
       );
-  String get displaySmallFamily => 'Outfit';
+  String get displaySmallFamily => 'Inter';
   TextStyle get displaySmall => GoogleFonts.getFont(
-        'Outfit',
+        'Inter',
         color: theme.primaryText,
         fontWeight: FontWeight.w600,
-        fontSize: 36.0,
+        fontSize: 16.0,
+        fontStyle: FontStyle.normal,
       );
   String get headlineLargeFamily => 'Outfit';
   TextStyle get headlineLarge => GoogleFonts.getFont(
@@ -265,26 +268,29 @@ class ThemeTypography extends Typography {
         fontWeight: FontWeight.normal,
         fontSize: 12.0,
       );
-  String get bodyLargeFamily => 'Readex Pro';
+  String get bodyLargeFamily => 'Inter';
   TextStyle get bodyLarge => GoogleFonts.getFont(
-        'Readex Pro',
+        'Inter',
         color: theme.primaryText,
-        fontWeight: FontWeight.normal,
+        fontWeight: FontWeight.w500,
         fontSize: 16.0,
+        fontStyle: FontStyle.normal,
       );
-  String get bodyMediumFamily => 'Readex Pro';
+  String get bodyMediumFamily => 'Inter';
   TextStyle get bodyMedium => GoogleFonts.getFont(
-        'Readex Pro',
+        'Inter',
         color: theme.primaryText,
-        fontWeight: FontWeight.normal,
-        fontSize: 14.0,
+        fontWeight: FontWeight.w500,
+        fontSize: 16.0,
+        fontStyle: FontStyle.normal,
       );
-  String get bodySmallFamily => 'Readex Pro';
+  String get bodySmallFamily => 'Inter';
   TextStyle get bodySmall => GoogleFonts.getFont(
-        'Readex Pro',
+        'Inter',
         color: theme.primaryText,
-        fontWeight: FontWeight.normal,
-        fontSize: 12.0,
+        fontWeight: FontWeight.w500,
+        fontSize: 14.0,
+        fontStyle: FontStyle.normal,
       );
 }
 

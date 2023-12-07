@@ -182,8 +182,7 @@ class _EditprofilescreenWidgetState extends State<EditprofilescreenWidget> {
                                                     FlutterFlowTheme.of(context)
                                                         .bodySmall
                                                         .override(
-                                                          fontFamily:
-                                                              'Readex Pro',
+                                                          fontFamily: 'Inter',
                                                           fontSize: 12.0,
                                                         ),
                                               ),
@@ -403,7 +402,7 @@ class _EditprofilescreenWidgetState extends State<EditprofilescreenWidget> {
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .override(
-                                    fontFamily: 'Readex Pro',
+                                    fontFamily: 'Inter',
                                     color: const Color(0xFFDBE2E7),
                                   ),
                               validator: _model.textController3Validator
@@ -466,7 +465,7 @@ class _EditprofilescreenWidgetState extends State<EditprofilescreenWidget> {
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .override(
-                                    fontFamily: 'Readex Pro',
+                                    fontFamily: 'Inter',
                                     color: const Color(0xFFDBE2E7),
                                   ),
                               validator: _model.textController4Validator
@@ -529,7 +528,7 @@ class _EditprofilescreenWidgetState extends State<EditprofilescreenWidget> {
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .override(
-                                    fontFamily: 'Readex Pro',
+                                    fontFamily: 'Inter',
                                     color: const Color(0xFFDBE2E7),
                                   ),
                               validator: _model.textController5Validator
@@ -592,7 +591,7 @@ class _EditprofilescreenWidgetState extends State<EditprofilescreenWidget> {
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .override(
-                                    fontFamily: 'Readex Pro',
+                                    fontFamily: 'Inter',
                                     color: const Color(0xFFDBE2E7),
                                   ),
                               validator: _model.textController6Validator
