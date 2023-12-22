@@ -137,9 +137,32 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => const CaregiversscreenWidget(),
         ),
         FFRoute(
-          name: 'caregiverfullprofile',
-          path: '/caregiverfullprofile',
-          builder: (context, params) => const CaregiverfullprofileWidget(),
+          name: 'supportpage',
+          path: '/supportpage',
+          builder: (context, params) => const SupportpageWidget(),
+        ),
+        FFRoute(
+          name: 'chooserole',
+          path: '/chooserole',
+          builder: (context, params) => const ChooseroleWidget(),
+        ),
+        FFRoute(
+          name: 'caregiverdetailspage',
+          path: '/caregiverdetailspage',
+          builder: (context, params) => CaregiverdetailspageWidget(
+            caregiversRef: params.getParam('caregiversRef',
+                ParamType.DocumentReference, false, ['Caregivers']),
+          ),
+        ),
+        FFRoute(
+          name: 'chatspage',
+          path: '/chatspage',
+          builder: (context, params) => const ChatspageWidget(),
+        ),
+        FFRoute(
+          name: 'messages',
+          path: '/messages',
+          builder: (context, params) => const MessagesWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );
@@ -334,13 +357,20 @@ class FFRoute {
                   key: state.pageKey,
                   child: child,
                   transitionDuration: transitionInfo.duration,
-                  transitionsBuilder: PageTransition(
+                  transitionsBuilder:
+                      (context, animation, secondaryAnimation, child) =>
+                          PageTransition(
                     type: transitionInfo.transitionType,
                     duration: transitionInfo.duration,
                     reverseDuration: transitionInfo.duration,
                     alignment: transitionInfo.alignment,
                     child: child,
-                  ).transitionsBuilder,
+                  ).buildTransitions(
+                    context,
+                    animation,
+                    secondaryAnimation,
+                    child,
+                  ),
                 )
               : MaterialPage(key: state.pageKey, child: child);
         },

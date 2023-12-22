@@ -2,7 +2,7 @@
     package="org.aydat.mycarer"
     xmlns:tools="http://schemas.android.com/tools">
     <uses-permission android:name="android.permission.INTERNET"/>
-
+    <uses-permission android:name="android.permission.CAMERA"/>
 
     <application
         android:label="MyCarer 24/7"
@@ -48,16 +48,6 @@
                 <data android:scheme="mycarer" android:host="mycarer.com" />
             </intent-filter>
 
-        </activity>
-        <activity android:name="com.braintreepayments.api.BraintreeBrowserSwitchActivity"
-            android:exported="true"
-            android:launchMode="singleTask">
-            <intent-filter>
-                <action android:name="android.intent.action.VIEW" />
-                <category android:name="android.intent.category.DEFAULT" />
-                <category android:name="android.intent.category.BROWSABLE" />
-                <data android:scheme="${applicationId}.braintree" />
-            </intent-filter>
         </activity>
 
         <!-- Don't delete the meta-data below.

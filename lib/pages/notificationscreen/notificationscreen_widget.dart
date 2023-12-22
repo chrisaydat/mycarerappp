@@ -3,6 +3,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:provider/provider.dart';
 import 'notificationscreen_model.dart';
 export 'notificationscreen_model.dart';
 
@@ -45,6 +46,8 @@ class _NotificationscreenWidgetState extends State<NotificationscreenWidget> {
         ),
       );
     }
+
+    context.watch<FFAppState>();
 
     return GestureDetector(
       onTap: () => _model.unfocusNode.canRequestFocus
@@ -105,7 +108,7 @@ class _NotificationscreenWidgetState extends State<NotificationscreenWidget> {
                   shape: BoxShape.rectangle,
                 ),
                 child: Padding(
-                  padding: const EdgeInsetsDirectional.fromSTEB(8.0, 8.0, 8.0, 8.0),
+                  padding: const EdgeInsets.all(8.0),
                   child: Row(
                     mainAxisSize: MainAxisSize.max,
                     children: [
@@ -157,7 +160,7 @@ class _NotificationscreenWidgetState extends State<NotificationscreenWidget> {
                   shape: BoxShape.rectangle,
                 ),
                 child: Padding(
-                  padding: const EdgeInsetsDirectional.fromSTEB(8.0, 8.0, 8.0, 8.0),
+                  padding: const EdgeInsets.all(8.0),
                   child: Row(
                     mainAxisSize: MainAxisSize.max,
                     children: [
@@ -209,7 +212,7 @@ class _NotificationscreenWidgetState extends State<NotificationscreenWidget> {
                   shape: BoxShape.rectangle,
                 ),
                 child: Padding(
-                  padding: const EdgeInsetsDirectional.fromSTEB(8.0, 8.0, 8.0, 8.0),
+                  padding: const EdgeInsets.all(8.0),
                   child: Row(
                     mainAxisSize: MainAxisSize.max,
                     children: [
@@ -261,7 +264,7 @@ class _NotificationscreenWidgetState extends State<NotificationscreenWidget> {
                   shape: BoxShape.rectangle,
                 ),
                 child: Padding(
-                  padding: const EdgeInsetsDirectional.fromSTEB(8.0, 8.0, 8.0, 8.0),
+                  padding: const EdgeInsets.all(8.0),
                   child: Row(
                     mainAxisSize: MainAxisSize.max,
                     children: [
@@ -313,7 +316,7 @@ class _NotificationscreenWidgetState extends State<NotificationscreenWidget> {
                   shape: BoxShape.rectangle,
                 ),
                 child: Padding(
-                  padding: const EdgeInsetsDirectional.fromSTEB(8.0, 8.0, 8.0, 8.0),
+                  padding: const EdgeInsets.all(8.0),
                   child: Row(
                     mainAxisSize: MainAxisSize.max,
                     children: [

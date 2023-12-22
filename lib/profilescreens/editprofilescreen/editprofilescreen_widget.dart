@@ -4,6 +4,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:provider/provider.dart';
 import 'editprofilescreen_model.dart';
 export 'editprofilescreen_model.dart';
 
@@ -63,6 +64,8 @@ class _EditprofilescreenWidgetState extends State<EditprofilescreenWidget> {
         ),
       );
     }
+
+    context.watch<FFAppState>();
 
     return Scaffold(
       key: scaffoldKey,
@@ -126,8 +129,7 @@ class _EditprofilescreenWidgetState extends State<EditprofilescreenWidget> {
                             borderRadius: BorderRadius.circular(8.0),
                           ),
                           child: Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
-                                12.0, 12.0, 12.0, 12.0),
+                            padding: const EdgeInsets.all(12.0),
                             child: Column(
                               mainAxisSize: MainAxisSize.max,
                               children: [
@@ -143,8 +145,7 @@ class _EditprofilescreenWidgetState extends State<EditprofilescreenWidget> {
                                             BorderRadius.circular(8.0),
                                       ),
                                       child: Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
-                                            8.0, 8.0, 8.0, 8.0),
+                                        padding: const EdgeInsets.all(8.0),
                                         child: Icon(
                                           Icons.phone_sharp,
                                           color:
