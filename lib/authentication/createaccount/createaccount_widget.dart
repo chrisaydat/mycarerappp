@@ -4,6 +4,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:provider/provider.dart';
 import 'createaccount_model.dart';
 export 'createaccount_model.dart';
 
@@ -54,6 +55,8 @@ class _CreateaccountWidgetState extends State<CreateaccountWidget> {
       );
     }
 
+    context.watch<FFAppState>();
+
     return GestureDetector(
       onTap: () => _model.unfocusNode.canRequestFocus
           ? FocusScope.of(context).requestFocus(_model.unfocusNode)
@@ -64,14 +67,26 @@ class _CreateaccountWidgetState extends State<CreateaccountWidget> {
         body: SafeArea(
           top: true,
           child: Align(
-            alignment: const AlignmentDirectional(0.00, 0.00),
+            alignment: const AlignmentDirectional(0.0, 0.0),
             child: Padding(
-              padding: const EdgeInsetsDirectional.fromSTEB(32.0, 32.0, 32.0, 32.0),
+              padding: const EdgeInsets.all(32.0),
               child: SingleChildScrollView(
                 child: Column(
                   mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
+                    Container(
+                      width: 120.0,
+                      height: 120.0,
+                      clipBehavior: Clip.antiAlias,
+                      decoration: const BoxDecoration(
+                        shape: BoxShape.circle,
+                      ),
+                      child: Image.asset(
+                        'assets/images/mycarerlogoagain.jpg',
+                        fit: BoxFit.cover,
+                      ),
+                    ),
                     Text(
                       'Create an account',
                       style: FlutterFlowTheme.of(context).displaySmall,
@@ -275,7 +290,9 @@ class _CreateaccountWidgetState extends State<CreateaccountWidget> {
                             return;
                           }
 
-                          context.goNamedAuth('HomePage', context.mounted);
+                          logFirebaseEvent('Button_navigate_to');
+
+                          context.pushNamedAuth('chooserole', context.mounted);
                         },
                         text: 'Create Account',
                         options: FFButtonOptions(

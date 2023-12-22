@@ -1,9 +1,8 @@
 import '/flutter_flow/flutter_flow_util.dart';
-import 'caregiverfullprofile_widget.dart' show CaregiverfullprofileWidget;
+import 'supportpage_widget.dart' show SupportpageWidget;
 import 'package:flutter/material.dart';
 
-class CaregiverfullprofileModel
-    extends FlutterFlowModel<CaregiverfullprofileWidget> {
+class SupportpageModel extends FlutterFlowModel<SupportpageWidget> {
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();

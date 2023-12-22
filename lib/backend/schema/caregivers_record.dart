@@ -6,6 +6,7 @@ import '/backend/schema/util/firestore_util.dart';
 import '/backend/schema/util/schema_util.dart';
 
 import 'index.dart';
+import '/flutter_flow/flutter_flow_util.dart';
 
 class CaregiversRecord extends FirestoreRecord {
   CaregiversRecord._(
@@ -19,11 +20,6 @@ class CaregiversRecord extends FirestoreRecord {
   String? _name;
   String get name => _name ?? '';
   bool hasName() => _name != null;
-
-  // "location" field.
-  String? _location;
-  String get location => _location ?? '';
-  bool hasLocation() => _location != null;
 
   // "specialization" field.
   String? _specialization;
@@ -55,15 +51,26 @@ class CaregiversRecord extends FirestoreRecord {
   String get photoURL => _photoURL ?? '';
   bool hasPhotoURL() => _photoURL != null;
 
+  // "location" field.
+  LatLng? _location;
+  LatLng? get location => _location;
+  bool hasLocation() => _location != null;
+
+  // "email" field.
+  String? _email;
+  String get email => _email ?? '';
+  bool hasEmail() => _email != null;
+
   void _initializeFields() {
     _name = snapshotData['name'] as String?;
-    _location = snapshotData['location'] as String?;
     _specialization = snapshotData['specialization'] as String?;
     _certifications = snapshotData['certifications'] as String?;
     _bio = snapshotData['bio'] as String?;
     _ratings = castToType<double>(snapshotData['ratings']);
     _availability = getDataList(snapshotData['availability']);
     _photoURL = snapshotData['photoURL'] as String?;
+    _location = snapshotData['location'] as LatLng?;
+    _email = snapshotData['email'] as String?;
   }
 
   static CollectionReference get collection =>
@@ -102,22 +109,24 @@ class CaregiversRecord extends FirestoreRecord {
 
 Map<String, dynamic> createCaregiversRecordData({
   String? name,
-  String? location,
   String? specialization,
   String? certifications,
   String? bio,
   double? ratings,
   String? photoURL,
+  LatLng? location,
+  String? email,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
       'name': name,
-      'location': location,
       'specialization': specialization,
       'certifications': certifications,
       'bio': bio,
       'ratings': ratings,
       'photoURL': photoURL,
+      'location': location,
+      'email': email,
     }.withoutNulls,
   );
 
@@ -131,25 +140,27 @@ class CaregiversRecordDocumentEquality implements Equality<CaregiversRecord> {
   bool equals(CaregiversRecord? e1, CaregiversRecord? e2) {
     const listEquality = ListEquality();
     return e1?.name == e2?.name &&
-        e1?.location == e2?.location &&
         e1?.specialization == e2?.specialization &&
         e1?.certifications == e2?.certifications &&
         e1?.bio == e2?.bio &&
         e1?.ratings == e2?.ratings &&
         listEquality.equals(e1?.availability, e2?.availability) &&
-        e1?.photoURL == e2?.photoURL;
+        e1?.photoURL == e2?.photoURL &&
+        e1?.location == e2?.location &&
+        e1?.email == e2?.email;
   }
 
   @override
   int hash(CaregiversRecord? e) => const ListEquality().hash([
         e?.name,
-        e?.location,
         e?.specialization,
         e?.certifications,
         e?.bio,
         e?.ratings,
         e?.availability,
-        e?.photoURL
+        e?.photoURL,
+        e?.location,
+        e?.email
       ]);
 
   @override

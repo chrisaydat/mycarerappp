@@ -5,6 +5,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:provider/provider.dart';
 import 'home_page_model.dart';
 export 'home_page_model.dart';
 
@@ -97,6 +98,8 @@ class _HomePageWidgetState extends State<HomePageWidget>
       );
     }
 
+    context.watch<FFAppState>();
+
     return GestureDetector(
       onTap: () => _model.unfocusNode.canRequestFocus
           ? FocusScope.of(context).requestFocus(_model.unfocusNode)
@@ -124,7 +127,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
             ),
           ),
           title: Align(
-            alignment: const AlignmentDirectional(0.00, 0.00),
+            alignment: const AlignmentDirectional(0.0, 0.0),
             child: Text(
               'My Carer',
               style: FlutterFlowTheme.of(context).bodyLarge.override(
@@ -194,7 +197,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                           ),
                           focusedBorder: OutlineInputBorder(
                             borderSide: BorderSide(
-                              color: FlutterFlowTheme.of(context).primary,
+                              color: FlutterFlowTheme.of(context).alternate,
                               width: 2.0,
                             ),
                             borderRadius: BorderRadius.circular(10.0),
