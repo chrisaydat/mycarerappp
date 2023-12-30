@@ -75,6 +75,8 @@ class _ChooseroleWidgetState extends State<ChooseroleWidget>
           !anim.applyInitialState),
       this,
     );
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

@@ -28,6 +28,7 @@ class _TermsofservicescreenWidgetState
 
     logFirebaseEvent('screen_view',
         parameters: {'screen_name': 'termsofservicescreen'});
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

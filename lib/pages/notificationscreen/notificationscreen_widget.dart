@@ -27,6 +27,7 @@ class _NotificationscreenWidgetState extends State<NotificationscreenWidget> {
 
     logFirebaseEvent('screen_view',
         parameters: {'screen_name': 'notificationscreen'});
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

@@ -27,6 +27,7 @@ class _OnboardingWidgetState extends State<OnboardingWidget> {
     _model = createModel(context, () => OnboardingModel());
 
     logFirebaseEvent('screen_view', parameters: {'screen_name': 'onboarding'});
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

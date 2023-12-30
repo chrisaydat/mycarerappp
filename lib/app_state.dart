@@ -27,6 +27,18 @@ class FFAppState extends ChangeNotifier {
   set bookingtime(String value) {
     _bookingtime = value;
   }
+
+  bool _pastbookings = false;
+  bool get pastbookings => _pastbookings;
+  set pastbookings(bool value) {
+    _pastbookings = value;
+  }
+
+  bool _upcomingbookings = false;
+  bool get upcomingbookings => _upcomingbookings;
+  set upcomingbookings(bool value) {
+    _upcomingbookings = value;
+  }
 }
 
 LatLng? _latLngFromString(String? val) {

@@ -5,6 +5,8 @@ import 'package:provider/provider.dart';
 
 import '/auth/base_auth_user_provider.dart';
 
+import '/backend/push_notifications/push_notifications_handler.dart'
+    show PushNotificationsHandler;
 import '/index.dart';
 import '/main.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -85,7 +87,10 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           path: '/homePage',
           builder: (context, params) => params.isEmpty
               ? const NavBarPage(initialPage: 'HomePage')
-              : const HomePageWidget(),
+              : const NavBarPage(
+                  initialPage: 'HomePage',
+                  page: HomePageWidget(),
+                ),
         ),
         FFRoute(
           name: 'createaccount',
@@ -163,6 +168,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'messages',
           path: '/messages',
           builder: (context, params) => const MessagesWidget(),
+        ),
+        FFRoute(
+          name: 'paymentdetailspage',
+          path: '/paymentdetailspage',
+          builder: (context, params) => const PaymentdetailspageWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );
@@ -349,7 +359,7 @@ class FFRoute {
                     fit: BoxFit.cover,
                   ),
                 )
-              : page;
+              : PushNotificationsHandler(child: page);
 
           final transitionInfo = state.transitionInfo;
           return transitionInfo.hasTransition

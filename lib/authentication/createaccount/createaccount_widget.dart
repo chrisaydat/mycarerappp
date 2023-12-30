@@ -30,11 +30,16 @@ class _CreateaccountWidgetState extends State<CreateaccountWidget> {
     _model.emailTextController ??= TextEditingController();
     _model.textFieldFocusNode1 ??= FocusNode();
 
-    _model.passwordTextController ??= TextEditingController();
+    _model.textController1 ??= TextEditingController();
     _model.textFieldFocusNode2 ??= FocusNode();
 
-    _model.confirmPasswordTextController ??= TextEditingController();
+    _model.passwordTextController ??= TextEditingController();
     _model.textFieldFocusNode3 ??= FocusNode();
+
+    _model.confirmPasswordTextController ??= TextEditingController();
+    _model.textFieldFocusNode4 ??= FocusNode();
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -147,8 +152,52 @@ class _CreateaccountWidgetState extends State<CreateaccountWidget> {
                       padding:
                           const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 16.0),
                       child: TextFormField(
-                        controller: _model.passwordTextController,
+                        controller: _model.textController1,
                         focusNode: _model.textFieldFocusNode2,
+                        obscureText: false,
+                        decoration: InputDecoration(
+                          labelText: 'Your Full Name',
+                          alignLabelWithHint: false,
+                          enabledBorder: OutlineInputBorder(
+                            borderSide: BorderSide(
+                              color: FlutterFlowTheme.of(context).alternate,
+                              width: 2.0,
+                            ),
+                            borderRadius: BorderRadius.circular(12.0),
+                          ),
+                          focusedBorder: OutlineInputBorder(
+                            borderSide: const BorderSide(
+                              color: Color(0x00000000),
+                              width: 2.0,
+                            ),
+                            borderRadius: BorderRadius.circular(12.0),
+                          ),
+                          errorBorder: OutlineInputBorder(
+                            borderSide: const BorderSide(
+                              color: Color(0x00000000),
+                              width: 2.0,
+                            ),
+                            borderRadius: BorderRadius.circular(12.0),
+                          ),
+                          focusedErrorBorder: OutlineInputBorder(
+                            borderSide: const BorderSide(
+                              color: Color(0x00000000),
+                              width: 2.0,
+                            ),
+                            borderRadius: BorderRadius.circular(12.0),
+                          ),
+                        ),
+                        style: FlutterFlowTheme.of(context).bodyLarge,
+                        validator: _model.textController1Validator
+                            .asValidator(context),
+                      ),
+                    ),
+                    Padding(
+                      padding:
+                          const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 16.0),
+                      child: TextFormField(
+                        controller: _model.passwordTextController,
+                        focusNode: _model.textFieldFocusNode3,
                         obscureText: !_model.passwordVisibility1,
                         decoration: InputDecoration(
                           labelText: 'Password',
@@ -206,7 +255,7 @@ class _CreateaccountWidgetState extends State<CreateaccountWidget> {
                           const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 16.0),
                       child: TextFormField(
                         controller: _model.confirmPasswordTextController,
-                        focusNode: _model.textFieldFocusNode3,
+                        focusNode: _model.textFieldFocusNode4,
                         obscureText: !_model.passwordVisibility2,
                         decoration: InputDecoration(
                           labelText: 'Confirm Password',

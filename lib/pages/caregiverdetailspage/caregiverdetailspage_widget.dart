@@ -1,10 +1,13 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
+import '/backend/stripe/payment_manager.dart';
+import '/components/bookingsuccessful/bookingsuccessful_widget.dart';
 import '/flutter_flow/flutter_flow_calendar.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import '/flutter_flow/custom_functions.dart' as functions;
 import '/flutter_flow/random_data_util.dart' as random_data;
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -39,6 +42,7 @@ class _CaregiverdetailspageWidgetState
 
     logFirebaseEvent('screen_view',
         parameters: {'screen_name': 'caregiverdetailspage'});
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -872,6 +876,46 @@ class _CaregiverdetailspageWidgetState
                                       onPressed: () async {
                                         logFirebaseEvent(
                                             'CAREGIVERDETAILSBOOK_APPOINTMENT_BTN_ON_');
+                                        // Stripe Payment
+                                        logFirebaseEvent(
+                                            'Button_StripePayment');
+                                        final paymentResponse =
+                                            await processStripePayment(
+                                          context,
+                                          amount: functions
+                                              .priceinWhatever(
+                                                  caregiverdetailspageCaregiversRecord
+                                                      .price)
+                                              .round(),
+                                          currency: 'USD',
+                                          customerEmail: currentUserEmail,
+                                          customerName: currentUserDisplayName,
+                                          description:
+                                              'Booking Fee for Caregiver${caregiverdetailspageCaregiversRecord.name}',
+                                          allowGooglePay: true,
+                                          allowApplePay: false,
+                                          themeStyle: ThemeMode.system,
+                                          buttonColor:
+                                              FlutterFlowTheme.of(context)
+                                                  .primary,
+                                          buttonTextColor:
+                                              FlutterFlowTheme.of(context)
+                                                  .primaryBackground,
+                                        );
+                                        if (paymentResponse.paymentId == null &&
+                                            paymentResponse.errorMessage !=
+                                                null) {
+                                          showSnackbar(
+                                            context,
+                                            'Error: ${paymentResponse.errorMessage}',
+                                          );
+                                        }
+                                        _model.paymentId =
+                                            paymentResponse.paymentId ?? '';
+
+                                        logFirebaseEvent('Button_wait__delay');
+                                        await Future.delayed(
+                                            const Duration(milliseconds: 3000));
                                         logFirebaseEvent('Button_backend_call');
 
                                         await BookingsRecord.collection
@@ -900,9 +944,35 @@ class _CaregiverdetailspageWidgetState
                                               bookingtime:
                                                   FFAppState().bookingtime,
                                             ));
-                                        logFirebaseEvent('Button_navigate_to');
+                                        logFirebaseEvent('Button_bottom_sheet');
+                                        await showModalBottomSheet(
+                                          isScrollControlled: true,
+                                          backgroundColor:
+                                              FlutterFlowTheme.of(context)
+                                                  .primary,
+                                          enableDrag: false,
+                                          context: context,
+                                          builder: (context) {
+                                            return GestureDetector(
+                                              onTap: () => _model.unfocusNode
+                                                      .canRequestFocus
+                                                  ? FocusScope.of(context)
+                                                      .requestFocus(
+                                                          _model.unfocusNode)
+                                                  : FocusScope.of(context)
+                                                      .unfocus(),
+                                              child: Padding(
+                                                padding:
+                                                    MediaQuery.viewInsetsOf(
+                                                        context),
+                                                child:
+                                                    const BookingsuccessfulWidget(),
+                                              ),
+                                            );
+                                          },
+                                        ).then((value) => safeSetState(() {}));
 
-                                        context.pushNamed('bookingpage');
+                                        setState(() {});
                                       },
                                       text: 'Book Appointment',
                                       options: FFButtonOptions(
