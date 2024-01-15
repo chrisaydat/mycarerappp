@@ -6,6 +6,8 @@ class HomePageModel extends FlutterFlowModel<HomePageWidget> {
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();
+  // State field(s) for PlacePicker widget.
+  var placePickerValue = const FFPlace();
 
   /// Initialization and disposal methods.
 

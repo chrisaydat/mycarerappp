@@ -144,6 +144,9 @@ class _BookingpageWidgetState extends State<BookingpageWidget>
                             ),
                           ],
                           controller: _model.tabBarController,
+                          onTap: (i) async {
+                            [() async {}, () async {}, () async {}][i]();
+                          },
                         ),
                       ),
                       Expanded(

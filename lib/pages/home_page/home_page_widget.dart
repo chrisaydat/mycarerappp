@@ -1,8 +1,10 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
+import '/flutter_flow/flutter_flow_place_picker.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:badges/badges.dart' as badges;
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -200,17 +202,15 @@ class _HomePageWidgetState extends State<HomePageWidget>
                           Padding(
                             padding: const EdgeInsetsDirectional.fromSTEB(
                                 20.0, 0.0, 20.0, 0.0),
-                            child: AuthUserStreamWidget(
-                              builder: (context) => Text(
-                                'Hi$currentUserDisplayName',
-                                style: FlutterFlowTheme.of(context)
-                                    .displayLarge
-                                    .override(
-                                      fontFamily: 'Inter',
-                                      fontSize: 30.0,
-                                      fontWeight: FontWeight.w800,
-                                    ),
-                              ),
+                            child: Text(
+                              'Hi$currentUserEmail',
+                              style: FlutterFlowTheme.of(context)
+                                  .displayLarge
+                                  .override(
+                                    fontFamily: 'Inter',
+                                    fontSize: 30.0,
+                                    fontWeight: FontWeight.w800,
+                                  ),
                             ),
                           ),
                         ],
@@ -403,6 +403,42 @@ class _HomePageWidgetState extends State<HomePageWidget>
                           animationsMap['containerOnPageLoadAnimation2']!),
                     ),
                   ].divide(const SizedBox(height: 2.0)),
+                ),
+              ),
+              Align(
+                alignment: const AlignmentDirectional(0.0, 0.0),
+                child: Padding(
+                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 50.0, 0.0, 0.0),
+                  child: FlutterFlowPlacePicker(
+                    iOSGoogleMapsApiKey: '',
+                    androidGoogleMapsApiKey: '',
+                    webGoogleMapsApiKey: '',
+                    onSelect: (place) async {
+                      setState(() => _model.placePickerValue = place);
+                    },
+                    defaultText: 'Select Location',
+                    icon: Icon(
+                      Icons.place,
+                      color: FlutterFlowTheme.of(context).info,
+                      size: 16.0,
+                    ),
+                    buttonOptions: FFButtonOptions(
+                      width: 200.0,
+                      height: 40.0,
+                      color: FlutterFlowTheme.of(context).alternate,
+                      textStyle:
+                          FlutterFlowTheme.of(context).titleSmall.override(
+                                fontFamily: 'Readex Pro',
+                                color: FlutterFlowTheme.of(context).info,
+                              ),
+                      elevation: 2.0,
+                      borderSide: const BorderSide(
+                        color: Colors.transparent,
+                        width: 1.0,
+                      ),
+                      borderRadius: BorderRadius.circular(12.0),
+                    ),
+                  ),
                 ),
               ),
             ],

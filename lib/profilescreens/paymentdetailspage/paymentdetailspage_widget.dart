@@ -169,28 +169,28 @@ class _PaymentdetailspageWidgetState extends State<PaymentdetailspageWidget> {
                           color: FlutterFlowTheme.of(context).primary,
                           width: 2.0,
                         ),
-                        borderRadius: BorderRadius.circular(0.0),
+                        borderRadius: BorderRadius.circular(12.0),
                       ),
                       focusedBorder: OutlineInputBorder(
                         borderSide: const BorderSide(
                           color: Color(0x00000000),
                           width: 2.0,
                         ),
-                        borderRadius: BorderRadius.circular(0.0),
+                        borderRadius: BorderRadius.circular(12.0),
                       ),
                       errorBorder: OutlineInputBorder(
                         borderSide: const BorderSide(
                           color: Color(0x00000000),
                           width: 2.0,
                         ),
-                        borderRadius: BorderRadius.circular(0.0),
+                        borderRadius: BorderRadius.circular(12.0),
                       ),
                       focusedErrorBorder: OutlineInputBorder(
                         borderSide: const BorderSide(
                           color: Color(0x00000000),
                           width: 2.0,
                         ),
-                        borderRadius: BorderRadius.circular(0.0),
+                        borderRadius: BorderRadius.circular(12.0),
                       ),
                       contentPadding: const EdgeInsetsDirectional.fromSTEB(
                           20.0, 24.0, 20.0, 24.0),
@@ -229,28 +229,28 @@ class _PaymentdetailspageWidgetState extends State<PaymentdetailspageWidget> {
                                           FlutterFlowTheme.of(context).primary,
                                       width: 2.0,
                                     ),
-                                    borderRadius: BorderRadius.circular(0.0),
+                                    borderRadius: BorderRadius.circular(12.0),
                                   ),
                                   focusedBorder: OutlineInputBorder(
                                     borderSide: const BorderSide(
                                       color: Color(0x00000000),
                                       width: 2.0,
                                     ),
-                                    borderRadius: BorderRadius.circular(0.0),
+                                    borderRadius: BorderRadius.circular(12.0),
                                   ),
                                   errorBorder: OutlineInputBorder(
                                     borderSide: const BorderSide(
                                       color: Color(0x00000000),
                                       width: 2.0,
                                     ),
-                                    borderRadius: BorderRadius.circular(0.0),
+                                    borderRadius: BorderRadius.circular(12.0),
                                   ),
                                   focusedErrorBorder: OutlineInputBorder(
                                     borderSide: const BorderSide(
                                       color: Color(0x00000000),
                                       width: 2.0,
                                     ),
-                                    borderRadius: BorderRadius.circular(0.0),
+                                    borderRadius: BorderRadius.circular(12.0),
                                   ),
                                   contentPadding:
                                       const EdgeInsetsDirectional.fromSTEB(
@@ -286,28 +286,28 @@ class _PaymentdetailspageWidgetState extends State<PaymentdetailspageWidget> {
                                           FlutterFlowTheme.of(context).primary,
                                       width: 2.0,
                                     ),
-                                    borderRadius: BorderRadius.circular(0.0),
+                                    borderRadius: BorderRadius.circular(12.0),
                                   ),
                                   focusedBorder: OutlineInputBorder(
                                     borderSide: const BorderSide(
                                       color: Color(0x00000000),
                                       width: 2.0,
                                     ),
-                                    borderRadius: BorderRadius.circular(0.0),
+                                    borderRadius: BorderRadius.circular(12.0),
                                   ),
                                   errorBorder: OutlineInputBorder(
                                     borderSide: const BorderSide(
                                       color: Color(0x00000000),
                                       width: 2.0,
                                     ),
-                                    borderRadius: BorderRadius.circular(0.0),
+                                    borderRadius: BorderRadius.circular(12.0),
                                   ),
                                   focusedErrorBorder: OutlineInputBorder(
                                     borderSide: const BorderSide(
                                       color: Color(0x00000000),
                                       width: 2.0,
                                     ),
-                                    borderRadius: BorderRadius.circular(0.0),
+                                    borderRadius: BorderRadius.circular(12.0),
                                   ),
                                   contentPadding:
                                       const EdgeInsetsDirectional.fromSTEB(
@@ -339,28 +339,28 @@ class _PaymentdetailspageWidgetState extends State<PaymentdetailspageWidget> {
                           color: FlutterFlowTheme.of(context).primary,
                           width: 2.0,
                         ),
-                        borderRadius: BorderRadius.circular(0.0),
+                        borderRadius: BorderRadius.circular(12.0),
                       ),
                       focusedBorder: OutlineInputBorder(
                         borderSide: const BorderSide(
                           color: Color(0x00000000),
                           width: 2.0,
                         ),
-                        borderRadius: BorderRadius.circular(0.0),
+                        borderRadius: BorderRadius.circular(12.0),
                       ),
                       errorBorder: OutlineInputBorder(
                         borderSide: const BorderSide(
                           color: Color(0x00000000),
                           width: 2.0,
                         ),
-                        borderRadius: BorderRadius.circular(0.0),
+                        borderRadius: BorderRadius.circular(12.0),
                       ),
                       focusedErrorBorder: OutlineInputBorder(
                         borderSide: const BorderSide(
                           color: Color(0x00000000),
                           width: 2.0,
                         ),
-                        borderRadius: BorderRadius.circular(0.0),
+                        borderRadius: BorderRadius.circular(12.0),
                       ),
                       contentPadding: const EdgeInsetsDirectional.fromSTEB(
                           20.0, 24.0, 20.0, 24.0),
