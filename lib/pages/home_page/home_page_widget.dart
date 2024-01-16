@@ -1,10 +1,9 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
-import '/flutter_flow/flutter_flow_place_picker.dart';
+import '/flutter_flow/flutter_flow_swipeable_stack.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:badges/badges.dart' as badges;
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -202,15 +201,17 @@ class _HomePageWidgetState extends State<HomePageWidget>
                           Padding(
                             padding: const EdgeInsetsDirectional.fromSTEB(
                                 20.0, 0.0, 20.0, 0.0),
-                            child: Text(
-                              'Hi$currentUserEmail',
-                              style: FlutterFlowTheme.of(context)
-                                  .displayLarge
-                                  .override(
-                                    fontFamily: 'Inter',
-                                    fontSize: 30.0,
-                                    fontWeight: FontWeight.w800,
-                                  ),
+                            child: AuthUserStreamWidget(
+                              builder: (context) => Text(
+                                'Hi there, $currentUserDisplayName',
+                                style: FlutterFlowTheme.of(context)
+                                    .displayLarge
+                                    .override(
+                                      fontFamily: 'Inter',
+                                      fontSize: 30.0,
+                                      fontWeight: FontWeight.w800,
+                                    ),
+                              ),
                             ),
                           ),
                         ],
@@ -402,43 +403,166 @@ class _HomePageWidgetState extends State<HomePageWidget>
                       ).animateOnPageLoad(
                           animationsMap['containerOnPageLoadAnimation2']!),
                     ),
+                    ListView(
+                      padding: EdgeInsets.zero,
+                      shrinkWrap: true,
+                      scrollDirection: Axis.vertical,
+                      children: [
+                        Container(
+                          height: 200.0,
+                          decoration: const BoxDecoration(),
+                          child: FlutterFlowSwipeableStack(
+                            onSwipeFn: (index) {},
+                            onLeftSwipe: (index) {},
+                            onRightSwipe: (index) {},
+                            onUpSwipe: (index) {},
+                            onDownSwipe: (index) {},
+                            itemBuilder: (context, index) {
+                              return [
+                                () => InkWell(
+                                      splashColor: Colors.transparent,
+                                      focusColor: Colors.transparent,
+                                      hoverColor: Colors.transparent,
+                                      highlightColor: Colors.transparent,
+                                      onTap: () async {
+                                        logFirebaseEvent(
+                                            'HOME_PAGE_PAGE_Stack_opmlymqq_ON_TAP');
+                                        logFirebaseEvent('Stack_launch_u_r_l');
+                                        await launchURL(
+                                            'https://www.ageuk.org.uk/information-advice/health-wellbeing/keep-well-this-winter/stay-healthy-in-winter/');
+                                      },
+                                      child: Stack(
+                                        children: [
+                                          ClipRRect(
+                                            borderRadius:
+                                                BorderRadius.circular(8.0),
+                                            child: Image.asset(
+                                              'assets/images/helping-carers-look-after-a-loved-one_1400x458.jpg',
+                                              width: double.infinity,
+                                              height: double.infinity,
+                                              fit: BoxFit.cover,
+                                            ),
+                                          ),
+                                          Align(
+                                            alignment:
+                                                const AlignmentDirectional(-1.0, 1.0),
+                                            child: Text(
+                                              'Keeping warm in the winter',
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyLarge
+                                                      .override(
+                                                        fontFamily: 'Inter',
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .info,
+                                                      ),
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                () => InkWell(
+                                      splashColor: Colors.transparent,
+                                      focusColor: Colors.transparent,
+                                      hoverColor: Colors.transparent,
+                                      highlightColor: Colors.transparent,
+                                      onTap: () async {
+                                        logFirebaseEvent(
+                                            'HOME_PAGE_PAGE_Stack_u1e1acme_ON_TAP');
+                                        logFirebaseEvent('Stack_launch_u_r_l');
+                                        await launchURL(
+                                            'https://www.ageuk.org.uk/information-advice/health-wellbeing/keep-well-this-winter/cold-weather-illnesses-and-your-health/');
+                                      },
+                                      child: Stack(
+                                        children: [
+                                          ClipRRect(
+                                            borderRadius:
+                                                BorderRadius.circular(8.0),
+                                            child: Image.asset(
+                                              'assets/images/500x300_older-asian-woman.jpg',
+                                              width: double.infinity,
+                                              height: double.infinity,
+                                              fit: BoxFit.cover,
+                                            ),
+                                          ),
+                                          Align(
+                                            alignment:
+                                                const AlignmentDirectional(-1.0, 1.0),
+                                            child: Text(
+                                              'Winter Illnesses',
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyLarge
+                                                      .override(
+                                                        fontFamily: 'Inter',
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .info,
+                                                      ),
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                () => InkWell(
+                                      splashColor: Colors.transparent,
+                                      focusColor: Colors.transparent,
+                                      hoverColor: Colors.transparent,
+                                      highlightColor: Colors.transparent,
+                                      onTap: () async {
+                                        logFirebaseEvent(
+                                            'HOME_PAGE_PAGE_Stack_irtpnx78_ON_TAP');
+                                        logFirebaseEvent('Stack_launch_u_r_l');
+                                        await launchURL(
+                                            'https://www.ageuk.org.uk/information-advice/care/helping-a-loved-one/caring-dementia/');
+                                      },
+                                      child: Stack(
+                                        children: [
+                                          ClipRRect(
+                                            borderRadius:
+                                                BorderRadius.circular(8.0),
+                                            child: Image.asset(
+                                              'assets/images/dementia-care-benefits-main.jpg',
+                                              width: double.infinity,
+                                              height: double.infinity,
+                                              fit: BoxFit.cover,
+                                            ),
+                                          ),
+                                          Align(
+                                            alignment:
+                                                const AlignmentDirectional(-1.0, 1.0),
+                                            child: Text(
+                                              'Dementia Care',
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyLarge
+                                                      .override(
+                                                        fontFamily: 'Inter',
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .info,
+                                                      ),
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                              ][index]();
+                            },
+                            itemCount: 3,
+                            controller: _model.swipeableStackController,
+                            loop: true,
+                            cardDisplayCount: 3,
+                            scale: 0.9,
+                          ),
+                        ),
+                      ],
+                    ),
                   ].divide(const SizedBox(height: 2.0)),
-                ),
-              ),
-              Align(
-                alignment: const AlignmentDirectional(0.0, 0.0),
-                child: Padding(
-                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 50.0, 0.0, 0.0),
-                  child: FlutterFlowPlacePicker(
-                    iOSGoogleMapsApiKey: '',
-                    androidGoogleMapsApiKey: '',
-                    webGoogleMapsApiKey: '',
-                    onSelect: (place) async {
-                      setState(() => _model.placePickerValue = place);
-                    },
-                    defaultText: 'Select Location',
-                    icon: Icon(
-                      Icons.place,
-                      color: FlutterFlowTheme.of(context).info,
-                      size: 16.0,
-                    ),
-                    buttonOptions: FFButtonOptions(
-                      width: 200.0,
-                      height: 40.0,
-                      color: FlutterFlowTheme.of(context).alternate,
-                      textStyle:
-                          FlutterFlowTheme.of(context).titleSmall.override(
-                                fontFamily: 'Readex Pro',
-                                color: FlutterFlowTheme.of(context).info,
-                              ),
-                      elevation: 2.0,
-                      borderSide: const BorderSide(
-                        color: Colors.transparent,
-                        width: 1.0,
-                      ),
-                      borderRadius: BorderRadius.circular(12.0),
-                    ),
-                  ),
                 ),
               ),
             ],
