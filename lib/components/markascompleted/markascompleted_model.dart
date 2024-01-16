@@ -1,8 +1,8 @@
 import '/flutter_flow/flutter_flow_util.dart';
-import 'editprofilescreen_widget.dart' show EditprofilescreenWidget;
+import 'markascompleted_widget.dart' show MarkascompletedWidget;
 import 'package:flutter/material.dart';
 
-class EditprofilescreenModel extends FlutterFlowModel<EditprofilescreenWidget> {
+class MarkascompletedModel extends FlutterFlowModel<MarkascompletedWidget> {
   /// Initialization and disposal methods.
 
   @override

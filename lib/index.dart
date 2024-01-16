@@ -24,3 +24,5 @@ export '/pages/caregiverdetailspage/caregiverdetailspage_widget.dart'
     show CaregiverdetailspageWidget;
 export '/chats/chatspage/chatspage_widget.dart' show ChatspageWidget;
 export '/chats/messages/messages_widget.dart' show MessagesWidget;
+export '/profilescreens/paymentdetailspage/paymentdetailspage_widget.dart'
+    show PaymentdetailspageWidget;

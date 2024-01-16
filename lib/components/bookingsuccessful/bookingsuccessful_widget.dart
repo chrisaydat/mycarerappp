@@ -27,6 +27,8 @@ class _BookingsuccessfulWidgetState extends State<BookingsuccessfulWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => BookingsuccessfulModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -160,7 +162,7 @@ class _BookingsuccessfulWidgetState extends State<BookingsuccessfulWidget> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Text(
-                          'Dr. John  will message you soon',
+                          'Your Doctor will Message you soon.',
                           style:
                               FlutterFlowTheme.of(context).bodyMedium.override(
                                     fontFamily: 'Inter',

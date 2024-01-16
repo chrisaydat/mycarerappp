@@ -10,6 +10,8 @@ class CaregiverdetailspageModel
   final unfocusNode = FocusNode();
   // State field(s) for Calendar widget.
   DateTimeRange? calendarSelectedDay;
+  // Stores action output result for [Stripe Payment] action in Button widget.
+  String? paymentId;
 
   /// Initialization and disposal methods.
 

@@ -61,6 +61,11 @@ class CaregiversRecord extends FirestoreRecord {
   String get email => _email ?? '';
   bool hasEmail() => _email != null;
 
+  // "price" field.
+  double? _price;
+  double get price => _price ?? 0.0;
+  bool hasPrice() => _price != null;
+
   void _initializeFields() {
     _name = snapshotData['name'] as String?;
     _specialization = snapshotData['specialization'] as String?;
@@ -71,6 +76,7 @@ class CaregiversRecord extends FirestoreRecord {
     _photoURL = snapshotData['photoURL'] as String?;
     _location = snapshotData['location'] as LatLng?;
     _email = snapshotData['email'] as String?;
+    _price = castToType<double>(snapshotData['price']);
   }
 
   static CollectionReference get collection =>
@@ -116,6 +122,7 @@ Map<String, dynamic> createCaregiversRecordData({
   String? photoURL,
   LatLng? location,
   String? email,
+  double? price,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -127,6 +134,7 @@ Map<String, dynamic> createCaregiversRecordData({
       'photoURL': photoURL,
       'location': location,
       'email': email,
+      'price': price,
     }.withoutNulls,
   );
 
@@ -147,7 +155,8 @@ class CaregiversRecordDocumentEquality implements Equality<CaregiversRecord> {
         listEquality.equals(e1?.availability, e2?.availability) &&
         e1?.photoURL == e2?.photoURL &&
         e1?.location == e2?.location &&
-        e1?.email == e2?.email;
+        e1?.email == e2?.email &&
+        e1?.price == e2?.price;
   }
 
   @override
@@ -160,7 +169,8 @@ class CaregiversRecordDocumentEquality implements Equality<CaregiversRecord> {
         e?.availability,
         e?.photoURL,
         e?.location,
-        e?.email
+        e?.email,
+        e?.price
       ]);
 
   @override

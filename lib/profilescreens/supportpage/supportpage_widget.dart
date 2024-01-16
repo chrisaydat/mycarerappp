@@ -162,6 +162,8 @@ class _SupportpageWidgetState extends State<SupportpageWidget>
           !anim.applyInitialState),
       this,
     );
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
