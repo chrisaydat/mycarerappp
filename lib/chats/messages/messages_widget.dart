@@ -2,8 +2,6 @@ import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:provider/provider.dart';
 import 'messages_model.dart';
 export 'messages_model.dart';
 
@@ -11,7 +9,7 @@ class MessagesWidget extends StatefulWidget {
   const MessagesWidget({super.key});
 
   @override
-  _MessagesWidgetState createState() => _MessagesWidgetState();
+  State<MessagesWidget> createState() => _MessagesWidgetState();
 }
 
 class _MessagesWidgetState extends State<MessagesWidget> {
@@ -27,8 +25,6 @@ class _MessagesWidgetState extends State<MessagesWidget> {
     logFirebaseEvent('screen_view', parameters: {'screen_name': 'messages'});
     _model.textController ??= TextEditingController();
     _model.textFieldFocusNode ??= FocusNode();
-
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -40,17 +36,6 @@ class _MessagesWidgetState extends State<MessagesWidget> {
 
   @override
   Widget build(BuildContext context) {
-    if (isiOS) {
-      SystemChrome.setSystemUIOverlayStyle(
-        SystemUiOverlayStyle(
-          statusBarBrightness: Theme.of(context).brightness,
-          systemStatusBarContrastEnforced: true,
-        ),
-      );
-    }
-
-    context.watch<FFAppState>();
-
     return GestureDetector(
       onTap: () => _model.unfocusNode.canRequestFocus
           ? FocusScope.of(context).requestFocus(_model.unfocusNode)
@@ -83,6 +68,7 @@ class _MessagesWidgetState extends State<MessagesWidget> {
                   fontFamily: 'Outfit',
                   color: Colors.white,
                   fontSize: 22.0,
+                  letterSpacing: 0.0,
                 ),
           ),
           actions: const [],
@@ -137,6 +123,7 @@ class _MessagesWidgetState extends State<MessagesWidget> {
                                       .bodyMedium
                                       .override(
                                         fontFamily: 'Inter',
+                                        letterSpacing: 0.0,
                                         fontWeight: FontWeight.w600,
                                       ),
                                 ),
@@ -219,6 +206,7 @@ class _MessagesWidgetState extends State<MessagesWidget> {
                                                         .bodyMedium
                                                         .override(
                                                           fontFamily: 'Inter',
+                                                          letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.w600,
                                                         ),
@@ -258,7 +246,13 @@ class _MessagesWidgetState extends State<MessagesWidget> {
                                                           'Hello, how can I help you?',
                                                           style: FlutterFlowTheme
                                                                   .of(context)
-                                                              .bodyMedium,
+                                                              .bodyMedium
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Inter',
+                                                                letterSpacing:
+                                                                    0.0,
+                                                              ),
                                                         ),
                                                       ),
                                                     ],
@@ -285,6 +279,8 @@ class _MessagesWidgetState extends State<MessagesWidget> {
                                                                     'Inter',
                                                                 color: const Color(
                                                                     0xFF707B81),
+                                                                letterSpacing:
+                                                                    0.0,
                                                               ),
                                                         ),
                                                       ],
@@ -338,6 +334,7 @@ class _MessagesWidgetState extends State<MessagesWidget> {
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .secondaryBackground,
+                                                          letterSpacing: 0.0,
                                                         ),
                                                   ),
                                                 ),
@@ -361,6 +358,7 @@ class _MessagesWidgetState extends State<MessagesWidget> {
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .alternate,
+                                                          letterSpacing: 0.0,
                                                         ),
                                                   ),
                                                 ],
@@ -411,16 +409,28 @@ class _MessagesWidgetState extends State<MessagesWidget> {
                                       decoration: InputDecoration(
                                         labelText: 'Type something...',
                                         labelStyle: FlutterFlowTheme.of(context)
-                                            .labelMedium,
+                                            .labelMedium
+                                            .override(
+                                              fontFamily: 'Readex Pro',
+                                              letterSpacing: 0.0,
+                                            ),
                                         hintStyle: FlutterFlowTheme.of(context)
-                                            .labelMedium,
+                                            .labelMedium
+                                            .override(
+                                              fontFamily: 'Readex Pro',
+                                              letterSpacing: 0.0,
+                                            ),
                                         enabledBorder: InputBorder.none,
                                         focusedBorder: InputBorder.none,
                                         errorBorder: InputBorder.none,
                                         focusedErrorBorder: InputBorder.none,
                                       ),
                                       style: FlutterFlowTheme.of(context)
-                                          .bodyMedium,
+                                          .bodyMedium
+                                          .override(
+                                            fontFamily: 'Inter',
+                                            letterSpacing: 0.0,
+                                          ),
                                       validator: _model.textControllerValidator
                                           .asValidator(context),
                                     ),
@@ -449,7 +459,6 @@ class _MessagesWidgetState extends State<MessagesWidget> {
                             onTap: () async {
                               logFirebaseEvent(
                                   'MESSAGES_PAGE_Column_6skd19i9_ON_TAP');
-                              logFirebaseEvent('Column_not_defined');
                             },
                             child: Column(
                               mainAxisSize: MainAxisSize.max,

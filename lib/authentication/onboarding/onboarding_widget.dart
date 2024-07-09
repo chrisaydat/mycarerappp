@@ -4,8 +4,6 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart'
     as smooth_page_indicator;
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:provider/provider.dart';
 import 'onboarding_model.dart';
 export 'onboarding_model.dart';
 
@@ -13,7 +11,7 @@ class OnboardingWidget extends StatefulWidget {
   const OnboardingWidget({super.key});
 
   @override
-  _OnboardingWidgetState createState() => _OnboardingWidgetState();
+  State<OnboardingWidget> createState() => _OnboardingWidgetState();
 }
 
 class _OnboardingWidgetState extends State<OnboardingWidget> {
@@ -27,7 +25,6 @@ class _OnboardingWidgetState extends State<OnboardingWidget> {
     _model = createModel(context, () => OnboardingModel());
 
     logFirebaseEvent('screen_view', parameters: {'screen_name': 'onboarding'});
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -39,17 +36,6 @@ class _OnboardingWidgetState extends State<OnboardingWidget> {
 
   @override
   Widget build(BuildContext context) {
-    if (isiOS) {
-      SystemChrome.setSystemUIOverlayStyle(
-        SystemUiOverlayStyle(
-          statusBarBrightness: Theme.of(context).brightness,
-          systemStatusBarContrastEnforced: true,
-        ),
-      );
-    }
-
-    context.watch<FFAppState>();
-
     return GestureDetector(
       onTap: () => _model.unfocusNode.canRequestFocus
           ? FocusScope.of(context).requestFocus(_model.unfocusNode)
@@ -122,6 +108,7 @@ class _OnboardingWidgetState extends State<OnboardingWidget> {
                                 duration: const Duration(milliseconds: 500),
                                 curve: Curves.ease,
                               );
+                              setState(() {});
                             },
                             effect: smooth_page_indicator.ExpandingDotsEffect(
                               expansionFactor: 3.0,
@@ -144,14 +131,20 @@ class _OnboardingWidgetState extends State<OnboardingWidget> {
                   padding: const EdgeInsetsDirectional.fromSTEB(0.0, 5.0, 0.0, 0.0),
                   child: Text(
                     'MyCarer',
-                    style: FlutterFlowTheme.of(context).headlineLarge,
+                    style: FlutterFlowTheme.of(context).headlineLarge.override(
+                          fontFamily: 'Outfit',
+                          letterSpacing: 0.0,
+                        ),
                   ),
                 ),
                 Padding(
                   padding: const EdgeInsetsDirectional.fromSTEB(0.0, 5.0, 0.0, 0.0),
                   child: Text(
                     'Connecting care with Compassion',
-                    style: FlutterFlowTheme.of(context).headlineSmall,
+                    style: FlutterFlowTheme.of(context).headlineSmall.override(
+                          fontFamily: 'Outfit',
+                          letterSpacing: 0.0,
+                        ),
                   ),
                 ),
                 Align(
@@ -162,7 +155,10 @@ class _OnboardingWidgetState extends State<OnboardingWidget> {
                     child: Text(
                       'Discover a community where finding the right care or offering your caregiving services is just a tap away. Join us in our mission to make caregiving accessible, flexible, and reliable.',
                       textAlign: TextAlign.center,
-                      style: FlutterFlowTheme.of(context).bodyMedium,
+                      style: FlutterFlowTheme.of(context).bodyMedium.override(
+                            fontFamily: 'Inter',
+                            letterSpacing: 0.0,
+                          ),
                     ),
                   ),
                 ),
@@ -189,6 +185,7 @@ class _OnboardingWidgetState extends State<OnboardingWidget> {
                           FlutterFlowTheme.of(context).titleSmall.override(
                                 fontFamily: 'Readex Pro',
                                 color: Colors.white,
+                                letterSpacing: 0.0,
                               ),
                       elevation: 3.0,
                       borderSide: const BorderSide(

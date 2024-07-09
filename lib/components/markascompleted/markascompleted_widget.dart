@@ -4,7 +4,6 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:provider/provider.dart';
 import 'markascompleted_model.dart';
 export 'markascompleted_model.dart';
 
@@ -17,7 +16,7 @@ class MarkascompletedWidget extends StatefulWidget {
   final DocumentReference? bookingsRef;
 
   @override
-  _MarkascompletedWidgetState createState() => _MarkascompletedWidgetState();
+  State<MarkascompletedWidget> createState() => _MarkascompletedWidgetState();
 }
 
 class _MarkascompletedWidgetState extends State<MarkascompletedWidget> {
@@ -33,8 +32,6 @@ class _MarkascompletedWidgetState extends State<MarkascompletedWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => MarkascompletedModel());
-
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -46,8 +43,6 @@ class _MarkascompletedWidgetState extends State<MarkascompletedWidget> {
 
   @override
   Widget build(BuildContext context) {
-    context.watch<FFAppState>();
-
     return Column(
       mainAxisSize: MainAxisSize.max,
       mainAxisAlignment: MainAxisAlignment.center,
@@ -70,7 +65,9 @@ class _MarkascompletedWidgetState extends State<MarkascompletedWidget> {
                   ),
                 );
               }
+
               final optionsBookingsRecord = snapshot.data!;
+
               return Material(
                 color: Colors.transparent,
                 elevation: 5.0,
@@ -111,8 +108,12 @@ class _MarkascompletedWidgetState extends State<MarkascompletedWidget> {
                               child: Text(
                                 'Do you want to mark this meeting as completed?',
                                 textAlign: TextAlign.center,
-                                style:
-                                    FlutterFlowTheme.of(context).headlineSmall,
+                                style: FlutterFlowTheme.of(context)
+                                    .headlineSmall
+                                    .override(
+                                      fontFamily: 'Outfit',
+                                      letterSpacing: 0.0,
+                                    ),
                               ),
                             ),
                           ],
@@ -166,6 +167,7 @@ class _MarkascompletedWidgetState extends State<MarkascompletedWidget> {
                                     .override(
                                       fontFamily: 'Readex Pro',
                                       color: Colors.white,
+                                      letterSpacing: 0.0,
                                     ),
                                 elevation: 3.0,
                                 borderSide: const BorderSide(
@@ -198,6 +200,7 @@ class _MarkascompletedWidgetState extends State<MarkascompletedWidget> {
                                       .override(
                                         fontFamily: 'Readex Pro',
                                         color: Colors.white,
+                                        letterSpacing: 0.0,
                                       ),
                                   elevation: 3.0,
                                   borderSide: const BorderSide(

@@ -3,8 +3,6 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:provider/provider.dart';
 import 'paymentdetailspage_model.dart';
 export 'paymentdetailspage_model.dart';
 
@@ -12,7 +10,7 @@ class PaymentdetailspageWidget extends StatefulWidget {
   const PaymentdetailspageWidget({super.key});
 
   @override
-  _PaymentdetailspageWidgetState createState() =>
+  State<PaymentdetailspageWidget> createState() =>
       _PaymentdetailspageWidgetState();
 }
 
@@ -39,8 +37,6 @@ class _PaymentdetailspageWidgetState extends State<PaymentdetailspageWidget> {
 
     _model.textController4 ??= TextEditingController();
     _model.textFieldFocusNode4 ??= FocusNode();
-
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -52,17 +48,6 @@ class _PaymentdetailspageWidgetState extends State<PaymentdetailspageWidget> {
 
   @override
   Widget build(BuildContext context) {
-    if (isiOS) {
-      SystemChrome.setSystemUIOverlayStyle(
-        SystemUiOverlayStyle(
-          statusBarBrightness: Theme.of(context).brightness,
-          systemStatusBarContrastEnforced: true,
-        ),
-      );
-    }
-
-    context.watch<FFAppState>();
-
     return GestureDetector(
       onTap: () => _model.unfocusNode.canRequestFocus
           ? FocusScope.of(context).requestFocus(_model.unfocusNode)
@@ -91,6 +76,7 @@ class _PaymentdetailspageWidgetState extends State<PaymentdetailspageWidget> {
             style: FlutterFlowTheme.of(context).titleMedium.override(
                   fontFamily: 'Readex Pro',
                   color: FlutterFlowTheme.of(context).alternate,
+                  letterSpacing: 0.0,
                 ),
           ),
           actions: const [],
@@ -125,6 +111,7 @@ class _PaymentdetailspageWidgetState extends State<PaymentdetailspageWidget> {
                                       fontFamily: 'Outfit',
                                       color: FlutterFlowTheme.of(context)
                                           .primaryText,
+                                      letterSpacing: 0.0,
                                     ),
                               ),
                             ),
@@ -159,11 +146,16 @@ class _PaymentdetailspageWidgetState extends State<PaymentdetailspageWidget> {
                   child: TextFormField(
                     controller: _model.textController1,
                     focusNode: _model.textFieldFocusNode1,
+                    autofocus: false,
                     obscureText: false,
                     decoration: InputDecoration(
                       labelText: 'Card Number',
                       hintText: 'Enter your card number',
-                      hintStyle: FlutterFlowTheme.of(context).bodyLarge,
+                      hintStyle:
+                          FlutterFlowTheme.of(context).bodyLarge.override(
+                                fontFamily: 'Inter',
+                                letterSpacing: 0.0,
+                              ),
                       enabledBorder: OutlineInputBorder(
                         borderSide: BorderSide(
                           color: FlutterFlowTheme.of(context).primary,
@@ -195,7 +187,10 @@ class _PaymentdetailspageWidgetState extends State<PaymentdetailspageWidget> {
                       contentPadding: const EdgeInsetsDirectional.fromSTEB(
                           20.0, 24.0, 20.0, 24.0),
                     ),
-                    style: FlutterFlowTheme.of(context).bodyMedium,
+                    style: FlutterFlowTheme.of(context).bodyMedium.override(
+                          fontFamily: 'Inter',
+                          letterSpacing: 0.0,
+                        ),
                     validator:
                         _model.textController1Validator.asValidator(context),
                   ),
@@ -217,12 +212,17 @@ class _PaymentdetailspageWidgetState extends State<PaymentdetailspageWidget> {
                               child: TextFormField(
                                 controller: _model.textController2,
                                 focusNode: _model.textFieldFocusNode2,
+                                autofocus: false,
                                 obscureText: false,
                                 decoration: InputDecoration(
                                   labelText: 'Expiration Date',
                                   hintText: 'MM/YY',
-                                  hintStyle:
-                                      FlutterFlowTheme.of(context).bodyLarge,
+                                  hintStyle: FlutterFlowTheme.of(context)
+                                      .bodyLarge
+                                      .override(
+                                        fontFamily: 'Inter',
+                                        letterSpacing: 0.0,
+                                      ),
                                   enabledBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
                                       color:
@@ -256,7 +256,12 @@ class _PaymentdetailspageWidgetState extends State<PaymentdetailspageWidget> {
                                       const EdgeInsetsDirectional.fromSTEB(
                                           20.0, 24.0, 20.0, 24.0),
                                 ),
-                                style: FlutterFlowTheme.of(context).bodyMedium,
+                                style: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .override(
+                                      fontFamily: 'Inter',
+                                      letterSpacing: 0.0,
+                                    ),
                                 validator: _model.textController2Validator
                                     .asValidator(context),
                               ),
@@ -274,12 +279,17 @@ class _PaymentdetailspageWidgetState extends State<PaymentdetailspageWidget> {
                               child: TextFormField(
                                 controller: _model.textController3,
                                 focusNode: _model.textFieldFocusNode3,
+                                autofocus: false,
                                 obscureText: false,
                                 decoration: InputDecoration(
                                   labelText: 'CVV',
                                   hintText: 'Enter CVV',
-                                  hintStyle:
-                                      FlutterFlowTheme.of(context).bodyLarge,
+                                  hintStyle: FlutterFlowTheme.of(context)
+                                      .bodyLarge
+                                      .override(
+                                        fontFamily: 'Inter',
+                                        letterSpacing: 0.0,
+                                      ),
                                   enabledBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
                                       color:
@@ -313,7 +323,12 @@ class _PaymentdetailspageWidgetState extends State<PaymentdetailspageWidget> {
                                       const EdgeInsetsDirectional.fromSTEB(
                                           20.0, 24.0, 20.0, 24.0),
                                 ),
-                                style: FlutterFlowTheme.of(context).bodyMedium,
+                                style: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .override(
+                                      fontFamily: 'Inter',
+                                      letterSpacing: 0.0,
+                                    ),
                                 validator: _model.textController3Validator
                                     .asValidator(context),
                               ),
@@ -329,11 +344,16 @@ class _PaymentdetailspageWidgetState extends State<PaymentdetailspageWidget> {
                   child: TextFormField(
                     controller: _model.textController4,
                     focusNode: _model.textFieldFocusNode4,
+                    autofocus: false,
                     obscureText: false,
                     decoration: InputDecoration(
                       labelText: 'Cardholder Name',
                       hintText: 'Enter cardholder name',
-                      hintStyle: FlutterFlowTheme.of(context).bodyLarge,
+                      hintStyle:
+                          FlutterFlowTheme.of(context).bodyLarge.override(
+                                fontFamily: 'Inter',
+                                letterSpacing: 0.0,
+                              ),
                       enabledBorder: OutlineInputBorder(
                         borderSide: BorderSide(
                           color: FlutterFlowTheme.of(context).primary,
@@ -365,7 +385,10 @@ class _PaymentdetailspageWidgetState extends State<PaymentdetailspageWidget> {
                       contentPadding: const EdgeInsetsDirectional.fromSTEB(
                           20.0, 24.0, 20.0, 24.0),
                     ),
-                    style: FlutterFlowTheme.of(context).bodyMedium,
+                    style: FlutterFlowTheme.of(context).bodyMedium.override(
+                          fontFamily: 'Inter',
+                          letterSpacing: 0.0,
+                        ),
                     validator:
                         _model.textController4Validator.asValidator(context),
                   ),
@@ -390,6 +413,7 @@ class _PaymentdetailspageWidgetState extends State<PaymentdetailspageWidget> {
                           FlutterFlowTheme.of(context).titleMedium.override(
                                 fontFamily: 'Readex Pro',
                                 color: Colors.white,
+                                letterSpacing: 0.0,
                               ),
                       elevation: 2.0,
                       borderRadius: BorderRadius.circular(12.0),

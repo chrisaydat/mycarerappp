@@ -3,9 +3,7 @@ import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:provider/provider.dart';
 import 'caregiversscreen_model.dart';
 export 'caregiversscreen_model.dart';
 
@@ -13,7 +11,7 @@ class CaregiversscreenWidget extends StatefulWidget {
   const CaregiversscreenWidget({super.key});
 
   @override
-  _CaregiversscreenWidgetState createState() => _CaregiversscreenWidgetState();
+  State<CaregiversscreenWidget> createState() => _CaregiversscreenWidgetState();
 }
 
 class _CaregiversscreenWidgetState extends State<CaregiversscreenWidget> {
@@ -28,7 +26,6 @@ class _CaregiversscreenWidgetState extends State<CaregiversscreenWidget> {
 
     logFirebaseEvent('screen_view',
         parameters: {'screen_name': 'caregiversscreen'});
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -40,17 +37,6 @@ class _CaregiversscreenWidgetState extends State<CaregiversscreenWidget> {
 
   @override
   Widget build(BuildContext context) {
-    if (isiOS) {
-      SystemChrome.setSystemUIOverlayStyle(
-        SystemUiOverlayStyle(
-          statusBarBrightness: Theme.of(context).brightness,
-          systemStatusBarContrastEnforced: true,
-        ),
-      );
-    }
-
-    context.watch<FFAppState>();
-
     return GestureDetector(
       onTap: () => _model.unfocusNode.canRequestFocus
           ? FocusScope.of(context).requestFocus(_model.unfocusNode)
@@ -59,11 +45,14 @@ class _CaregiversscreenWidgetState extends State<CaregiversscreenWidget> {
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
         appBar: AppBar(
-          backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
+          backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
           automaticallyImplyLeading: false,
           title: Text(
             'Caregivers',
-            style: FlutterFlowTheme.of(context).headlineMedium,
+            style: FlutterFlowTheme.of(context).headlineMedium.override(
+                  fontFamily: 'Outfit',
+                  letterSpacing: 0.0,
+                ),
           ),
           actions: [
             Padding(
@@ -103,7 +92,10 @@ class _CaregiversscreenWidgetState extends State<CaregiversscreenWidget> {
                       BoxShadow(
                         blurRadius: 3.0,
                         color: Color(0x33000000),
-                        offset: Offset(0.0, 1.0),
+                        offset: Offset(
+                          0.0,
+                          1.0,
+                        ),
                       )
                     ],
                   ),
@@ -116,7 +108,11 @@ class _CaregiversscreenWidgetState extends State<CaregiversscreenWidget> {
                             16.0, 0.0, 0.0, 12.0),
                         child: Text(
                           'Choose from Available Certified Caregivers Below.',
-                          style: FlutterFlowTheme.of(context).labelMedium,
+                          style:
+                              FlutterFlowTheme.of(context).labelMedium.override(
+                                    fontFamily: 'Readex Pro',
+                                    letterSpacing: 0.0,
+                                  ),
                         ),
                       ),
                     ],
@@ -140,6 +136,7 @@ class _CaregiversscreenWidgetState extends State<CaregiversscreenWidget> {
                     }
                     List<CaregiversRecord> listViewCaregiversRecordList =
                         snapshot.data!;
+
                     return ListView.builder(
                       padding: EdgeInsets.zero,
                       shrinkWrap: true,
@@ -190,7 +187,10 @@ class _CaregiversscreenWidgetState extends State<CaregiversscreenWidget> {
                                     blurRadius: 0.0,
                                     color:
                                         FlutterFlowTheme.of(context).alternate,
-                                    offset: const Offset(0.0, 1.0),
+                                    offset: const Offset(
+                                      0.0,
+                                      1.0,
+                                    ),
                                   )
                                 ],
                               ),
@@ -224,6 +224,14 @@ class _CaregiversscreenWidgetState extends State<CaregiversscreenWidget> {
                                             width: 44.0,
                                             height: 44.0,
                                             fit: BoxFit.cover,
+                                            errorBuilder:
+                                                (context, error, stackTrace) =>
+                                                    Image.asset(
+                                              'assets/images/error_image.png',
+                                              width: 44.0,
+                                              height: 44.0,
+                                              fit: BoxFit.cover,
+                                            ),
                                           ),
                                         ),
                                       ),
@@ -246,7 +254,11 @@ class _CaregiversscreenWidgetState extends State<CaregiversscreenWidget> {
                                                 listViewCaregiversRecord.name,
                                                 style:
                                                     FlutterFlowTheme.of(context)
-                                                        .bodyLarge,
+                                                        .bodyLarge
+                                                        .override(
+                                                          fontFamily: 'Inter',
+                                                          letterSpacing: 0.0,
+                                                        ),
                                               ),
                                             ),
                                             Text(
@@ -254,7 +266,12 @@ class _CaregiversscreenWidgetState extends State<CaregiversscreenWidget> {
                                                   .certifications,
                                               style:
                                                   FlutterFlowTheme.of(context)
-                                                      .labelMedium,
+                                                      .labelMedium
+                                                      .override(
+                                                        fontFamily:
+                                                            'Readex Pro',
+                                                        letterSpacing: 0.0,
+                                                      ),
                                             ),
                                           ],
                                         ),

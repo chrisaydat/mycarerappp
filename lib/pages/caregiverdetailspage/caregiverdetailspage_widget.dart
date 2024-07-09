@@ -10,7 +10,6 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import '/flutter_flow/random_data_util.dart' as random_data;
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:provider/provider.dart';
 import 'caregiverdetailspage_model.dart';
@@ -25,7 +24,7 @@ class CaregiverdetailspageWidget extends StatefulWidget {
   final DocumentReference? caregiversRef;
 
   @override
-  _CaregiverdetailspageWidgetState createState() =>
+  State<CaregiverdetailspageWidget> createState() =>
       _CaregiverdetailspageWidgetState();
 }
 
@@ -42,7 +41,6 @@ class _CaregiverdetailspageWidgetState
 
     logFirebaseEvent('screen_view',
         parameters: {'screen_name': 'caregiverdetailspage'});
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -54,15 +52,6 @@ class _CaregiverdetailspageWidgetState
 
   @override
   Widget build(BuildContext context) {
-    if (isiOS) {
-      SystemChrome.setSystemUIOverlayStyle(
-        SystemUiOverlayStyle(
-          statusBarBrightness: Theme.of(context).brightness,
-          systemStatusBarContrastEnforced: true,
-        ),
-      );
-    }
-
     context.watch<FFAppState>();
 
     return StreamBuilder<CaregiversRecord>(
@@ -84,7 +73,9 @@ class _CaregiverdetailspageWidgetState
             ),
           );
         }
+
         final caregiverdetailspageCaregiversRecord = snapshot.data!;
+
         return GestureDetector(
           onTap: () => _model.unfocusNode.canRequestFocus
               ? FocusScope.of(context).requestFocus(_model.unfocusNode)
@@ -97,7 +88,10 @@ class _CaregiverdetailspageWidgetState
               automaticallyImplyLeading: false,
               title: Text(
                 'Caregivers Details',
-                style: FlutterFlowTheme.of(context).headlineMedium,
+                style: FlutterFlowTheme.of(context).headlineMedium.override(
+                      fontFamily: 'Outfit',
+                      letterSpacing: 0.0,
+                    ),
               ),
               actions: [
                 Padding(
@@ -140,6 +134,13 @@ class _CaregiverdetailspageWidgetState
                             width: double.infinity,
                             height: 300.0,
                             fit: BoxFit.cover,
+                            errorBuilder: (context, error, stackTrace) =>
+                                Image.asset(
+                              'assets/images/error_image.png',
+                              width: double.infinity,
+                              height: 300.0,
+                              fit: BoxFit.cover,
+                            ),
                           ),
                         ),
                       ),
@@ -192,6 +193,7 @@ class _CaregiverdetailspageWidgetState
                                                       .override(
                                                         fontFamily: 'Inter',
                                                         fontSize: 20.0,
+                                                        letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.bold,
                                                       ),
@@ -214,6 +216,7 @@ class _CaregiverdetailspageWidgetState
                                                       .override(
                                                         fontFamily: 'Inter',
                                                         fontSize: 16.0,
+                                                        letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.normal,
                                                       ),
@@ -242,7 +245,11 @@ class _CaregiverdetailspageWidgetState
                                             .ratings
                                             .toString(),
                                         style: FlutterFlowTheme.of(context)
-                                            .bodyMedium,
+                                            .bodyMedium
+                                            .override(
+                                              fontFamily: 'Inter',
+                                              letterSpacing: 0.0,
+                                            ),
                                       ),
                                     ],
                                   ),
@@ -277,6 +284,7 @@ class _CaregiverdetailspageWidgetState
                                         .override(
                                           fontFamily: 'Inter',
                                           fontSize: 20.0,
+                                          letterSpacing: 0.0,
                                           fontWeight: FontWeight.bold,
                                         ),
                                   ),
@@ -301,6 +309,7 @@ class _CaregiverdetailspageWidgetState
                                           .override(
                                             fontFamily: 'Inter',
                                             fontSize: 16.0,
+                                            letterSpacing: 0.0,
                                             fontWeight: FontWeight.normal,
                                           ),
                                     ),
@@ -334,16 +343,36 @@ class _CaregiverdetailspageWidgetState
                                 setState(() => _model.calendarSelectedDay =
                                     newSelectedDate);
                               },
-                              titleStyle:
-                                  FlutterFlowTheme.of(context).headlineSmall,
-                              dayOfWeekStyle:
-                                  FlutterFlowTheme.of(context).labelLarge,
-                              dateStyle:
-                                  FlutterFlowTheme.of(context).bodyMedium,
-                              selectedDateStyle:
-                                  FlutterFlowTheme.of(context).titleSmall,
-                              inactiveDateStyle:
-                                  FlutterFlowTheme.of(context).labelMedium,
+                              titleStyle: FlutterFlowTheme.of(context)
+                                  .headlineSmall
+                                  .override(
+                                    fontFamily: 'Outfit',
+                                    letterSpacing: 0.0,
+                                  ),
+                              dayOfWeekStyle: FlutterFlowTheme.of(context)
+                                  .labelLarge
+                                  .override(
+                                    fontFamily: 'Readex Pro',
+                                    letterSpacing: 0.0,
+                                  ),
+                              dateStyle: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .override(
+                                    fontFamily: 'Inter',
+                                    letterSpacing: 0.0,
+                                  ),
+                              selectedDateStyle: FlutterFlowTheme.of(context)
+                                  .titleSmall
+                                  .override(
+                                    fontFamily: 'Readex Pro',
+                                    letterSpacing: 0.0,
+                                  ),
+                              inactiveDateStyle: FlutterFlowTheme.of(context)
+                                  .labelMedium
+                                  .override(
+                                    fontFamily: 'Readex Pro',
+                                    letterSpacing: 0.0,
+                                  ),
                               locale: FFLocalizations.of(context).languageCode,
                             ),
                           ),
@@ -374,10 +403,8 @@ class _CaregiverdetailspageWidgetState
                                                 'CAREGIVERDETAILSContainer_7qc6lh1q_ON_TA');
                                             logFirebaseEvent(
                                                 'Container_update_app_state');
-                                            setState(() {
-                                              FFAppState().bookingtime =
-                                                  '8:00AM';
-                                            });
+                                            FFAppState().bookingtime = '8:00AM';
+                                            setState(() {});
                                           },
                                           child: Container(
                                             width: 65.0,
@@ -415,10 +442,9 @@ class _CaregiverdetailspageWidgetState
                                                     'CAREGIVERDETAILSRow_vnbcv2x9_ON_TAP');
                                                 logFirebaseEvent(
                                                     'Row_update_app_state');
-                                                setState(() {
-                                                  FFAppState().bookingtime =
-                                                      '8:00AM';
-                                                });
+                                                FFAppState().bookingtime =
+                                                    '8:00AM';
+                                                setState(() {});
                                               },
                                               child: SingleChildScrollView(
                                                 scrollDirection:
@@ -431,10 +457,13 @@ class _CaregiverdetailspageWidgetState
                                                   children: [
                                                     Text(
                                                       '8:00AM',
-                                                      style:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyMedium,
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .bodyMedium
+                                                          .override(
+                                                            fontFamily: 'Inter',
+                                                            letterSpacing: 0.0,
+                                                          ),
                                                     ),
                                                   ],
                                                 ),
@@ -456,10 +485,8 @@ class _CaregiverdetailspageWidgetState
                                                 'CAREGIVERDETAILSContainer_ithypqdw_ON_TA');
                                             logFirebaseEvent(
                                                 'Container_update_app_state');
-                                            setState(() {
-                                              FFAppState().bookingtime =
-                                                  '9:00AM';
-                                            });
+                                            FFAppState().bookingtime = '9:00AM';
+                                            setState(() {});
                                           },
                                           child: Container(
                                             width: 65.0,
@@ -497,10 +524,9 @@ class _CaregiverdetailspageWidgetState
                                                     'CAREGIVERDETAILSRow_v27jg88n_ON_TAP');
                                                 logFirebaseEvent(
                                                     'Row_update_app_state');
-                                                setState(() {
-                                                  FFAppState().bookingtime =
-                                                      '9:00AM';
-                                                });
+                                                FFAppState().bookingtime =
+                                                    '9:00AM';
+                                                setState(() {});
                                               },
                                               child: Row(
                                                 mainAxisSize: MainAxisSize.max,
@@ -511,7 +537,11 @@ class _CaregiverdetailspageWidgetState
                                                     '9:00AM',
                                                     style: FlutterFlowTheme.of(
                                                             context)
-                                                        .bodyMedium,
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Inter',
+                                                          letterSpacing: 0.0,
+                                                        ),
                                                   ),
                                                 ],
                                               ),
@@ -532,10 +562,9 @@ class _CaregiverdetailspageWidgetState
                                                 'CAREGIVERDETAILSContainer_oh5fr7cv_ON_TA');
                                             logFirebaseEvent(
                                                 'Container_update_app_state');
-                                            setState(() {
-                                              FFAppState().bookingtime =
-                                                  '10:00AM';
-                                            });
+                                            FFAppState().bookingtime =
+                                                '10:00AM';
+                                            setState(() {});
                                           },
                                           child: Container(
                                             width: 70.0,
@@ -573,10 +602,9 @@ class _CaregiverdetailspageWidgetState
                                                     'CAREGIVERDETAILSRow_xsqomv3r_ON_TAP');
                                                 logFirebaseEvent(
                                                     'Row_update_app_state');
-                                                setState(() {
-                                                  FFAppState().bookingtime =
-                                                      '10:00AM';
-                                                });
+                                                FFAppState().bookingtime =
+                                                    '10:00AM';
+                                                setState(() {});
                                               },
                                               child: Row(
                                                 mainAxisSize: MainAxisSize.max,
@@ -587,7 +615,11 @@ class _CaregiverdetailspageWidgetState
                                                     '10:00AM',
                                                     style: FlutterFlowTheme.of(
                                                             context)
-                                                        .bodyMedium,
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Inter',
+                                                          letterSpacing: 0.0,
+                                                        ),
                                                   ),
                                                 ],
                                               ),
@@ -608,10 +640,9 @@ class _CaregiverdetailspageWidgetState
                                                 'CAREGIVERDETAILSContainer_k0w8yh4i_ON_TA');
                                             logFirebaseEvent(
                                                 'Container_update_app_state');
-                                            setState(() {
-                                              FFAppState().bookingtime =
-                                                  '11:00AM';
-                                            });
+                                            FFAppState().bookingtime =
+                                                '11:00AM';
+                                            setState(() {});
                                           },
                                           child: Container(
                                             width: 70.0,
@@ -649,10 +680,9 @@ class _CaregiverdetailspageWidgetState
                                                     'CAREGIVERDETAILSRow_fl3tdwgd_ON_TAP');
                                                 logFirebaseEvent(
                                                     'Row_update_app_state');
-                                                setState(() {
-                                                  FFAppState().bookingtime =
-                                                      '11:00AM';
-                                                });
+                                                FFAppState().bookingtime =
+                                                    '11:00AM';
+                                                setState(() {});
                                               },
                                               child: Row(
                                                 mainAxisSize: MainAxisSize.max,
@@ -663,7 +693,11 @@ class _CaregiverdetailspageWidgetState
                                                     '11:00AM',
                                                     style: FlutterFlowTheme.of(
                                                             context)
-                                                        .bodyMedium,
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Inter',
+                                                          letterSpacing: 0.0,
+                                                        ),
                                                   ),
                                                 ],
                                               ),
@@ -684,10 +718,9 @@ class _CaregiverdetailspageWidgetState
                                                 'CAREGIVERDETAILSContainer_zww1di0e_ON_TA');
                                             logFirebaseEvent(
                                                 'Container_update_app_state');
-                                            setState(() {
-                                              FFAppState().bookingtime =
-                                                  '12:00PM';
-                                            });
+                                            FFAppState().bookingtime =
+                                                '12:00PM';
+                                            setState(() {});
                                           },
                                           child: Container(
                                             width: 70.0,
@@ -725,10 +758,9 @@ class _CaregiverdetailspageWidgetState
                                                     'CAREGIVERDETAILSRow_04jmxv1g_ON_TAP');
                                                 logFirebaseEvent(
                                                     'Row_update_app_state');
-                                                setState(() {
-                                                  FFAppState().bookingtime =
-                                                      '12:00PM';
-                                                });
+                                                FFAppState().bookingtime =
+                                                    '12:00PM';
+                                                setState(() {});
                                               },
                                               child: Row(
                                                 mainAxisSize: MainAxisSize.max,
@@ -739,7 +771,11 @@ class _CaregiverdetailspageWidgetState
                                                     '12:00PM',
                                                     style: FlutterFlowTheme.of(
                                                             context)
-                                                        .bodyMedium,
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Inter',
+                                                          letterSpacing: 0.0,
+                                                        ),
                                                   ),
                                                 ],
                                               ),
@@ -760,10 +796,8 @@ class _CaregiverdetailspageWidgetState
                                                 'CAREGIVERDETAILSContainer_764i6jbg_ON_TA');
                                             logFirebaseEvent(
                                                 'Container_update_app_state');
-                                            setState(() {
-                                              FFAppState().bookingtime =
-                                                  '1:00PM';
-                                            });
+                                            FFAppState().bookingtime = '1:00PM';
+                                            setState(() {});
                                           },
                                           child: Container(
                                             width: 70.0,
@@ -801,10 +835,9 @@ class _CaregiverdetailspageWidgetState
                                                     'CAREGIVERDETAILSRow_fspe38o8_ON_TAP');
                                                 logFirebaseEvent(
                                                     'Row_update_app_state');
-                                                setState(() {
-                                                  FFAppState().bookingtime =
-                                                      '1:00PM';
-                                                });
+                                                FFAppState().bookingtime =
+                                                    '1:00PM';
+                                                setState(() {});
                                               },
                                               child: Row(
                                                 mainAxisSize: MainAxisSize.max,
@@ -815,7 +848,11 @@ class _CaregiverdetailspageWidgetState
                                                     '1:00PM',
                                                     style: FlutterFlowTheme.of(
                                                             context)
-                                                        .bodyMedium,
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Inter',
+                                                          letterSpacing: 0.0,
+                                                        ),
                                                   ),
                                                 ],
                                               ),
@@ -858,6 +895,7 @@ class _CaregiverdetailspageWidgetState
                                             fontFamily: 'Readex Pro',
                                             color: FlutterFlowTheme.of(context)
                                                 .alternate,
+                                            letterSpacing: 0.0,
                                           ),
                                       borderSide: BorderSide(
                                         color: FlutterFlowTheme.of(context)
@@ -992,6 +1030,7 @@ class _CaregiverdetailspageWidgetState
                                               color:
                                                   FlutterFlowTheme.of(context)
                                                       .secondaryBackground,
+                                              letterSpacing: 0.0,
                                             ),
                                         borderSide: BorderSide(
                                           color: FlutterFlowTheme.of(context)

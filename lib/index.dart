@@ -18,11 +18,11 @@ export '/pages/caregiversscreen/caregiversscreen_widget.dart'
     show CaregiversscreenWidget;
 export '/profilescreens/supportpage/supportpage_widget.dart'
     show SupportpageWidget;
-export '/authentication/chooserole/chooserole_widget.dart'
-    show ChooseroleWidget;
 export '/pages/caregiverdetailspage/caregiverdetailspage_widget.dart'
     show CaregiverdetailspageWidget;
 export '/chats/chatspage/chatspage_widget.dart' show ChatspageWidget;
 export '/chats/messages/messages_widget.dart' show MessagesWidget;
 export '/profilescreens/paymentdetailspage/paymentdetailspage_widget.dart'
     show PaymentdetailspageWidget;
+export '/mapandgeocoding/mapviewpage/mapviewpage_widget.dart'
+    show MapviewpageWidget;

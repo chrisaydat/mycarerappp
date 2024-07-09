@@ -2,8 +2,6 @@ import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:provider/provider.dart';
 import 'termsofservicescreen_model.dart';
 export 'termsofservicescreen_model.dart';
 
@@ -11,7 +9,7 @@ class TermsofservicescreenWidget extends StatefulWidget {
   const TermsofservicescreenWidget({super.key});
 
   @override
-  _TermsofservicescreenWidgetState createState() =>
+  State<TermsofservicescreenWidget> createState() =>
       _TermsofservicescreenWidgetState();
 }
 
@@ -28,7 +26,6 @@ class _TermsofservicescreenWidgetState
 
     logFirebaseEvent('screen_view',
         parameters: {'screen_name': 'termsofservicescreen'});
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -40,17 +37,6 @@ class _TermsofservicescreenWidgetState
 
   @override
   Widget build(BuildContext context) {
-    if (isiOS) {
-      SystemChrome.setSystemUIOverlayStyle(
-        SystemUiOverlayStyle(
-          statusBarBrightness: Theme.of(context).brightness,
-          systemStatusBarContrastEnforced: true,
-        ),
-      );
-    }
-
-    context.watch<FFAppState>();
-
     return GestureDetector(
       onTap: () => _model.unfocusNode.canRequestFocus
           ? FocusScope.of(context).requestFocus(_model.unfocusNode)
@@ -63,7 +49,10 @@ class _TermsofservicescreenWidgetState
           automaticallyImplyLeading: false,
           title: Text(
             'Terms of service',
-            style: FlutterFlowTheme.of(context).headlineMedium,
+            style: FlutterFlowTheme.of(context).headlineMedium.override(
+                  fontFamily: 'Outfit',
+                  letterSpacing: 0.0,
+                ),
           ),
           actions: [
             Padding(
@@ -94,7 +83,7 @@ class _TermsofservicescreenWidgetState
           child: Align(
             alignment: const AlignmentDirectional(0.0, 0.0),
             child: RichText(
-              textScaleFactor: MediaQuery.of(context).textScaleFactor,
+              textScaler: MediaQuery.of(context).textScaler,
               text: TextSpan(
                 children: [
                   TextSpan(
@@ -102,6 +91,7 @@ class _TermsofservicescreenWidgetState
                     style: FlutterFlowTheme.of(context).bodyMedium.override(
                           fontFamily: 'Inter',
                           color: FlutterFlowTheme.of(context).primary,
+                          letterSpacing: 0.0,
                           fontWeight: FontWeight.bold,
                         ),
                   ),
@@ -110,7 +100,10 @@ class _TermsofservicescreenWidgetState
                     style: TextStyle(),
                   )
                 ],
-                style: FlutterFlowTheme.of(context).bodyMedium,
+                style: FlutterFlowTheme.of(context).bodyMedium.override(
+                      fontFamily: 'Inter',
+                      letterSpacing: 0.0,
+                    ),
               ),
             ),
           ),
