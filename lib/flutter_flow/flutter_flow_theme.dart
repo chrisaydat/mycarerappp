@@ -126,13 +126,13 @@ class LightModeTheme extends FlutterFlowTheme {
   Color get tertiaryColor => tertiary;
 
   late Color primary = const Color(0xFF1DCED4);
-  late Color secondary = const Color(0xFFFF5C00);
+  late Color secondary = const Color(0xFFFF4F00);
   late Color tertiary = const Color(0xFFDEDEC0);
   late Color alternate = const Color(0xFF000000);
   late Color primaryText = const Color(0xFF14181B);
   late Color secondaryText = const Color(0xFF57636C);
   late Color primaryBackground = const Color(0xFFFFFFFF);
-  late Color secondaryBackground = const Color(0xFFFFFFFF);
+  late Color secondaryBackground = const Color(0xFF000000);
   late Color accent1 = const Color(0xFF8296A6);
   late Color accent2 = const Color(0xFFCED9D9);
   late Color accent3 = const Color(0xFF3D536B);
@@ -308,7 +308,7 @@ class DarkModeTheme extends FlutterFlowTheme {
   late Color alternate = const Color(0xFF8296A6);
   late Color primaryText = const Color(0xFFFFFFFF);
   late Color secondaryText = const Color(0xFF95A1AC);
-  late Color primaryBackground = const Color(0xFF081808);
+  late Color primaryBackground = const Color(0xFF000000);
   late Color secondaryBackground = const Color(0xFF14181B);
   late Color accent1 = const Color(0xFF8296A6);
   late Color accent2 = const Color(0xFF8296A6);
@@ -331,6 +331,7 @@ extension TextStyleHelper on TextStyle {
     bool useGoogleFonts = true,
     TextDecoration? decoration,
     double? lineHeight,
+    List<Shadow>? shadows,
   }) =>
       useGoogleFonts
           ? GoogleFonts.getFont(
@@ -342,6 +343,7 @@ extension TextStyleHelper on TextStyle {
               fontStyle: fontStyle ?? this.fontStyle,
               decoration: decoration,
               height: lineHeight,
+              shadows: shadows,
             )
           : copyWith(
               fontFamily: fontFamily,
@@ -352,5 +354,6 @@ extension TextStyleHelper on TextStyle {
               fontStyle: fontStyle,
               decoration: decoration,
               height: lineHeight,
+              shadows: shadows,
             );
 }

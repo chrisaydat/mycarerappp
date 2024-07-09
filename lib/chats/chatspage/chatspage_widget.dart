@@ -4,9 +4,7 @@ import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:provider/provider.dart';
 import 'chatspage_model.dart';
 export 'chatspage_model.dart';
 
@@ -14,7 +12,7 @@ class ChatspageWidget extends StatefulWidget {
   const ChatspageWidget({super.key});
 
   @override
-  _ChatspageWidgetState createState() => _ChatspageWidgetState();
+  State<ChatspageWidget> createState() => _ChatspageWidgetState();
 }
 
 class _ChatspageWidgetState extends State<ChatspageWidget> {
@@ -28,7 +26,6 @@ class _ChatspageWidgetState extends State<ChatspageWidget> {
     _model = createModel(context, () => ChatspageModel());
 
     logFirebaseEvent('screen_view', parameters: {'screen_name': 'chatspage'});
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -40,17 +37,6 @@ class _ChatspageWidgetState extends State<ChatspageWidget> {
 
   @override
   Widget build(BuildContext context) {
-    if (isiOS) {
-      SystemChrome.setSystemUIOverlayStyle(
-        SystemUiOverlayStyle(
-          statusBarBrightness: Theme.of(context).brightness,
-          systemStatusBarContrastEnforced: true,
-        ),
-      );
-    }
-
-    context.watch<FFAppState>();
-
     return GestureDetector(
       onTap: () => _model.unfocusNode.canRequestFocus
           ? FocusScope.of(context).requestFocus(_model.unfocusNode)
@@ -83,6 +69,7 @@ class _ChatspageWidgetState extends State<ChatspageWidget> {
                   fontFamily: 'Outfit',
                   color: Colors.white,
                   fontSize: 22.0,
+                  letterSpacing: 0.0,
                 ),
           ),
           actions: const [],
@@ -119,6 +106,7 @@ class _ChatspageWidgetState extends State<ChatspageWidget> {
                       List<UsersRecord> listViewUsersRecordList = snapshot.data!
                           .where((u) => u.uid != currentUserUid)
                           .toList();
+
                       return ListView.builder(
                         padding: EdgeInsets.zero,
                         scrollDirection: Axis.horizontal,
@@ -180,6 +168,7 @@ class _ChatspageWidgetState extends State<ChatspageWidget> {
                               fontFamily: 'Inter',
                               color: const Color(0xFF6A6A6A),
                               fontSize: 16.0,
+                              letterSpacing: 0.0,
                             ),
                       ),
                     ),
@@ -205,6 +194,7 @@ class _ChatspageWidgetState extends State<ChatspageWidget> {
                       );
                     }
                     List<ChatsRecord> listViewChatsRecordList = snapshot.data!;
+
                     return ListView.builder(
                       padding: EdgeInsets.zero,
                       shrinkWrap: true,
@@ -234,7 +224,9 @@ class _ChatspageWidgetState extends State<ChatspageWidget> {
                                   ),
                                 );
                               }
+
                               final rowUsersRecord = snapshot.data!;
+
                               return InkWell(
                                 splashColor: Colors.transparent,
                                 focusColor: Colors.transparent,
@@ -320,6 +312,7 @@ class _ChatspageWidgetState extends State<ChatspageWidget> {
                                                         .override(
                                                           fontFamily: 'Inter',
                                                           fontSize: 16.0,
+                                                          letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.w600,
                                                         ),
@@ -337,6 +330,7 @@ class _ChatspageWidgetState extends State<ChatspageWidget> {
                                                         .override(
                                                           fontFamily: 'Inter',
                                                           fontSize: 16.0,
+                                                          letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.w600,
                                                         ),
@@ -351,7 +345,11 @@ class _ChatspageWidgetState extends State<ChatspageWidget> {
                                                         .lastMessage,
                                                     style: FlutterFlowTheme.of(
                                                             context)
-                                                        .bodyMedium,
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Inter',
+                                                          letterSpacing: 0.0,
+                                                        ),
                                                   ),
                                                 ],
                                               ),
@@ -370,7 +368,11 @@ class _ChatspageWidgetState extends State<ChatspageWidget> {
                                           child: Text(
                                             '3.25PM',
                                             style: FlutterFlowTheme.of(context)
-                                                .bodyMedium,
+                                                .bodyMedium
+                                                .override(
+                                                  fontFamily: 'Inter',
+                                                  letterSpacing: 0.0,
+                                                ),
                                           ),
                                         ),
                                       ],

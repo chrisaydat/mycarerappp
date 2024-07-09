@@ -3,9 +3,7 @@ import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:provider/provider.dart';
 import 'notificationscreen_model.dart';
 export 'notificationscreen_model.dart';
 
@@ -13,7 +11,7 @@ class NotificationscreenWidget extends StatefulWidget {
   const NotificationscreenWidget({super.key});
 
   @override
-  _NotificationscreenWidgetState createState() =>
+  State<NotificationscreenWidget> createState() =>
       _NotificationscreenWidgetState();
 }
 
@@ -29,7 +27,6 @@ class _NotificationscreenWidgetState extends State<NotificationscreenWidget> {
 
     logFirebaseEvent('screen_view',
         parameters: {'screen_name': 'notificationscreen'});
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -41,17 +38,6 @@ class _NotificationscreenWidgetState extends State<NotificationscreenWidget> {
 
   @override
   Widget build(BuildContext context) {
-    if (isiOS) {
-      SystemChrome.setSystemUIOverlayStyle(
-        SystemUiOverlayStyle(
-          statusBarBrightness: Theme.of(context).brightness,
-          systemStatusBarContrastEnforced: true,
-        ),
-      );
-    }
-
-    context.watch<FFAppState>();
-
     return GestureDetector(
       onTap: () => _model.unfocusNode.canRequestFocus
           ? FocusScope.of(context).requestFocus(_model.unfocusNode)
@@ -64,7 +50,10 @@ class _NotificationscreenWidgetState extends State<NotificationscreenWidget> {
           automaticallyImplyLeading: false,
           title: Text(
             'Notifications',
-            style: FlutterFlowTheme.of(context).headlineMedium,
+            style: FlutterFlowTheme.of(context).headlineMedium.override(
+                  fontFamily: 'Outfit',
+                  letterSpacing: 0.0,
+                ),
           ),
           actions: [
             Padding(
@@ -107,6 +96,7 @@ class _NotificationscreenWidgetState extends State<NotificationscreenWidget> {
               );
             }
             List<BookingsRecord> listViewBookingsRecordList = snapshot.data!;
+
             return ListView.builder(
               padding: EdgeInsets.zero,
               scrollDirection: Axis.vertical,
@@ -124,7 +114,10 @@ class _NotificationscreenWidgetState extends State<NotificationscreenWidget> {
                         BoxShadow(
                           blurRadius: 0.0,
                           color: Color(0xFFE0E3E7),
-                          offset: Offset(0.0, 1.0),
+                          offset: Offset(
+                            0.0,
+                            1.0,
+                          ),
                         )
                       ],
                       borderRadius: BorderRadius.circular(0.0),
@@ -149,7 +142,12 @@ class _NotificationscreenWidgetState extends State<NotificationscreenWidget> {
                                   12.0, 0.0, 0.0, 0.0),
                               child: Text(
                                 'Your next Booking Starts at${listViewBookingsRecord.startTime?.toString()}',
-                                style: FlutterFlowTheme.of(context).bodyLarge,
+                                style: FlutterFlowTheme.of(context)
+                                    .bodyLarge
+                                    .override(
+                                      fontFamily: 'Inter',
+                                      letterSpacing: 0.0,
+                                    ),
                               ),
                             ),
                           ),
@@ -158,7 +156,12 @@ class _NotificationscreenWidgetState extends State<NotificationscreenWidget> {
                                 12.0, 0.0, 0.0, 0.0),
                             child: Text(
                               'Mar 8, 2022',
-                              style: FlutterFlowTheme.of(context).labelMedium,
+                              style: FlutterFlowTheme.of(context)
+                                  .labelMedium
+                                  .override(
+                                    fontFamily: 'Readex Pro',
+                                    letterSpacing: 0.0,
+                                  ),
                             ),
                           ),
                         ],

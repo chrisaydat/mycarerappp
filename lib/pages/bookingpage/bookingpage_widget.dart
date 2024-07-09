@@ -7,7 +7,6 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:provider/provider.dart';
 import 'bookingpage_model.dart';
@@ -17,7 +16,7 @@ class BookingpageWidget extends StatefulWidget {
   const BookingpageWidget({super.key});
 
   @override
-  _BookingpageWidgetState createState() => _BookingpageWidgetState();
+  State<BookingpageWidget> createState() => _BookingpageWidgetState();
 }
 
 class _BookingpageWidgetState extends State<BookingpageWidget>
@@ -36,18 +35,16 @@ class _BookingpageWidgetState extends State<BookingpageWidget>
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       logFirebaseEvent('BOOKINGbookingpage_ON_INIT_STATE');
       logFirebaseEvent('bookingpage_update_app_state');
-      setState(() {
-        FFAppState().upcomingbookings = true;
-        FFAppState().pastbookings = false;
-      });
+      FFAppState().upcomingbookings = true;
+      FFAppState().pastbookings = false;
+      setState(() {});
     });
 
     _model.tabBarController = TabController(
       vsync: this,
-      length: 3,
+      length: 2,
       initialIndex: 0,
     )..addListener(() => setState(() {}));
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -59,15 +56,6 @@ class _BookingpageWidgetState extends State<BookingpageWidget>
 
   @override
   Widget build(BuildContext context) {
-    if (isiOS) {
-      SystemChrome.setSystemUIOverlayStyle(
-        SystemUiOverlayStyle(
-          statusBarBrightness: Theme.of(context).brightness,
-          systemStatusBarContrastEnforced: true,
-        ),
-      );
-    }
-
     context.watch<FFAppState>();
 
     return GestureDetector(
@@ -88,6 +76,7 @@ class _BookingpageWidgetState extends State<BookingpageWidget>
                     fontFamily: 'Outfit',
                     color: Colors.black,
                     fontSize: 22.0,
+                    letterSpacing: 0.0,
                     fontWeight: FontWeight.normal,
                   ),
             ),
@@ -115,7 +104,11 @@ class _BookingpageWidgetState extends State<BookingpageWidget>
                         alignment: const Alignment(0.0, 0),
                         child: FlutterFlowButtonTabBar(
                           useToggleButtonStyle: true,
-                          labelStyle: FlutterFlowTheme.of(context).titleMedium,
+                          labelStyle:
+                              FlutterFlowTheme.of(context).titleMedium.override(
+                                    fontFamily: 'Readex Pro',
+                                    letterSpacing: 0.0,
+                                  ),
                           unselectedLabelStyle: const TextStyle(),
                           labelColor: FlutterFlowTheme.of(context).primaryText,
                           unselectedLabelColor:
@@ -139,13 +132,19 @@ class _BookingpageWidgetState extends State<BookingpageWidget>
                             Tab(
                               text: 'Past',
                             ),
-                            Tab(
-                              text: 'Cancelled',
-                            ),
                           ],
                           controller: _model.tabBarController,
                           onTap: (i) async {
-                            [() async {}, () async {}, () async {}][i]();
+                            [
+                              () async {},
+                              () async {
+                                logFirebaseEvent(
+                                    'BOOKINGPAGE_PAGE_Tab_ot75l3os_ON_TAP');
+                                logFirebaseEvent('Tab_update_app_state');
+                                FFAppState().pastbookings = false;
+                                setState(() {});
+                              }
+                            ][i]();
                           },
                         ),
                       ),
@@ -175,6 +174,7 @@ class _BookingpageWidgetState extends State<BookingpageWidget>
                                   List<BookingsRecord>
                                       listViewBookingsRecordList =
                                       snapshot.data!;
+
                                   return ListView.builder(
                                     padding: EdgeInsets.zero,
                                     scrollDirection: Axis.vertical,
@@ -232,7 +232,13 @@ class _BookingpageWidgetState extends State<BookingpageWidget>
                                                             'Order ID: ${listViewBookingsRecord.orderId}',
                                                             style: FlutterFlowTheme
                                                                     .of(context)
-                                                                .bodyMedium,
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Inter',
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                ),
                                                           ),
                                                         ),
                                                         FlutterFlowIconButton(
@@ -330,7 +336,13 @@ class _BookingpageWidgetState extends State<BookingpageWidget>
                                                           )}',
                                                           style: FlutterFlowTheme
                                                                   .of(context)
-                                                              .bodyMedium,
+                                                              .bodyMedium
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Inter',
+                                                                letterSpacing:
+                                                                    0.0,
+                                                              ),
                                                         ),
                                                       ),
                                                     ],
@@ -365,6 +377,16 @@ class _BookingpageWidgetState extends State<BookingpageWidget>
                                                               height: 96.0,
                                                               fit: BoxFit
                                                                   .contain,
+                                                              errorBuilder: (context,
+                                                                      error,
+                                                                      stackTrace) =>
+                                                                  Image.asset(
+                                                                'assets/images/error_image.png',
+                                                                width: 98.0,
+                                                                height: 96.0,
+                                                                fit: BoxFit
+                                                                    .contain,
+                                                              ),
                                                             ),
                                                           ),
                                                         ),
@@ -389,7 +411,13 @@ class _BookingpageWidgetState extends State<BookingpageWidget>
                                                                         .caregivername,
                                                                     style: FlutterFlowTheme.of(
                                                                             context)
-                                                                        .bodyMedium,
+                                                                        .bodyMedium
+                                                                        .override(
+                                                                          fontFamily:
+                                                                              'Inter',
+                                                                          letterSpacing:
+                                                                              0.0,
+                                                                        ),
                                                                   ),
                                                                 ),
                                                               ],
@@ -412,7 +440,13 @@ class _BookingpageWidgetState extends State<BookingpageWidget>
                                                                         .toString(),
                                                                     style: FlutterFlowTheme.of(
                                                                             context)
-                                                                        .bodyMedium,
+                                                                        .bodyMedium
+                                                                        .override(
+                                                                          fontFamily:
+                                                                              'Inter',
+                                                                          letterSpacing:
+                                                                              0.0,
+                                                                        ),
                                                                   ),
                                                                 ),
                                                                 Icon(
@@ -485,6 +519,8 @@ class _BookingpageWidgetState extends State<BookingpageWidget>
                                                                           'Readex Pro',
                                                                       color: Colors
                                                                           .white,
+                                                                      letterSpacing:
+                                                                          0.0,
                                                                     ),
                                                             elevation: 3.0,
                                                             borderSide:
@@ -534,6 +570,8 @@ class _BookingpageWidgetState extends State<BookingpageWidget>
                                                                           'Readex Pro',
                                                                       color: Colors
                                                                           .white,
+                                                                      letterSpacing:
+                                                                          0.0,
                                                                     ),
                                                             elevation: 3.0,
                                                             borderSide:
@@ -584,6 +622,7 @@ class _BookingpageWidgetState extends State<BookingpageWidget>
                                   List<PastbookingsRecord>
                                       listViewPastbookingsRecordList =
                                       snapshot.data!;
+
                                   return InkWell(
                                     splashColor: Colors.transparent,
                                     focusColor: Colors.transparent,
@@ -594,10 +633,9 @@ class _BookingpageWidgetState extends State<BookingpageWidget>
                                           'BOOKINGListView_e53lonmq_ON_TAP');
                                       logFirebaseEvent(
                                           'ListView_update_app_state');
-                                      setState(() {
-                                        FFAppState().pastbookings = true;
-                                        FFAppState().upcomingbookings = false;
-                                      });
+                                      FFAppState().pastbookings = true;
+                                      FFAppState().upcomingbookings = false;
+                                      setState(() {});
                                     },
                                     child: ListView.builder(
                                       padding: EdgeInsets.zero,
@@ -654,7 +692,13 @@ class _BookingpageWidgetState extends State<BookingpageWidget>
                                                               'Order ID:${listViewPastbookingsRecord.orderId}',
                                                               style: FlutterFlowTheme
                                                                       .of(context)
-                                                                  .bodyMedium,
+                                                                  .bodyMedium
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        'Inter',
+                                                                    letterSpacing:
+                                                                        0.0,
+                                                                  ),
                                                             ),
                                                           ),
                                                         ],
@@ -683,7 +727,13 @@ class _BookingpageWidgetState extends State<BookingpageWidget>
                                                             )}',
                                                             style: FlutterFlowTheme
                                                                     .of(context)
-                                                                .bodyMedium,
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Inter',
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                ),
                                                           ),
                                                         ),
                                                       ],
@@ -738,7 +788,13 @@ class _BookingpageWidgetState extends State<BookingpageWidget>
                                                                         .caregivername,
                                                                     style: FlutterFlowTheme.of(
                                                                             context)
-                                                                        .bodyMedium,
+                                                                        .bodyMedium
+                                                                        .override(
+                                                                          fontFamily:
+                                                                              'Inter',
+                                                                          letterSpacing:
+                                                                              0.0,
+                                                                        ),
                                                                   ),
                                                                 ],
                                                               ),
@@ -752,7 +808,13 @@ class _BookingpageWidgetState extends State<BookingpageWidget>
                                                                         .clientsname,
                                                                     style: FlutterFlowTheme.of(
                                                                             context)
-                                                                        .bodyMedium,
+                                                                        .bodyMedium
+                                                                        .override(
+                                                                          fontFamily:
+                                                                              'Inter',
+                                                                          letterSpacing:
+                                                                              0.0,
+                                                                        ),
                                                                   ),
                                                                 ],
                                                               ),
@@ -815,6 +877,8 @@ class _BookingpageWidgetState extends State<BookingpageWidget>
                                                                           'Readex Pro',
                                                                       color: Colors
                                                                           .white,
+                                                                      letterSpacing:
+                                                                          0.0,
                                                                     ),
                                                                 elevation: 3.0,
                                                                 borderSide:
@@ -873,6 +937,8 @@ class _BookingpageWidgetState extends State<BookingpageWidget>
                                                                           'Readex Pro',
                                                                       color: Colors
                                                                           .white,
+                                                                      letterSpacing:
+                                                                          0.0,
                                                                     ),
                                                                 elevation: 3.0,
                                                                 borderSide:
@@ -902,37 +968,6 @@ class _BookingpageWidgetState extends State<BookingpageWidget>
                                   );
                                 },
                               ),
-                            ),
-                            Column(
-                              mainAxisSize: MainAxisSize.max,
-                              children: [
-                                RichText(
-                                  textScaleFactor:
-                                      MediaQuery.of(context).textScaleFactor,
-                                  text: TextSpan(
-                                    children: [
-                                      TextSpan(
-                                        text: 'This page is still',
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyMedium
-                                            .override(
-                                              fontFamily: 'Inter',
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .primary,
-                                              fontWeight: FontWeight.bold,
-                                            ),
-                                      ),
-                                      const TextSpan(
-                                        text: ' - under construction.',
-                                        style: TextStyle(),
-                                      )
-                                    ],
-                                    style:
-                                        FlutterFlowTheme.of(context).bodyMedium,
-                                  ),
-                                ),
-                              ],
                             ),
                           ],
                         ),

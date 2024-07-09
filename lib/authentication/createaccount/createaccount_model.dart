@@ -26,8 +26,6 @@ class CreateaccountModel extends FlutterFlowModel<CreateaccountWidget> {
   String? Function(BuildContext, String?)?
       confirmPasswordTextControllerValidator;
 
-  /// Initialization and disposal methods.
-
   @override
   void initState(BuildContext context) {
     passwordVisibility1 = false;
@@ -49,8 +47,4 @@ class CreateaccountModel extends FlutterFlowModel<CreateaccountWidget> {
     textFieldFocusNode4?.dispose();
     confirmPasswordTextController?.dispose();
   }
-
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
 }

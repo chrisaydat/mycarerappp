@@ -3,9 +3,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:provider/provider.dart';
 import 'loginpage_model.dart';
 export 'loginpage_model.dart';
 
@@ -13,7 +11,7 @@ class LoginpageWidget extends StatefulWidget {
   const LoginpageWidget({super.key});
 
   @override
-  _LoginpageWidgetState createState() => _LoginpageWidgetState();
+  State<LoginpageWidget> createState() => _LoginpageWidgetState();
 }
 
 class _LoginpageWidgetState extends State<LoginpageWidget> {
@@ -32,8 +30,6 @@ class _LoginpageWidgetState extends State<LoginpageWidget> {
 
     _model.passwordTextController ??= TextEditingController();
     _model.textFieldFocusNode2 ??= FocusNode();
-
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -45,17 +41,6 @@ class _LoginpageWidgetState extends State<LoginpageWidget> {
 
   @override
   Widget build(BuildContext context) {
-    if (isiOS) {
-      SystemChrome.setSystemUIOverlayStyle(
-        SystemUiOverlayStyle(
-          statusBarBrightness: Theme.of(context).brightness,
-          systemStatusBarContrastEnforced: true,
-        ),
-      );
-    }
-
-    context.watch<FFAppState>();
-
     return GestureDetector(
       onTap: () => _model.unfocusNode.canRequestFocus
           ? FocusScope.of(context).requestFocus(_model.unfocusNode)
@@ -119,8 +104,12 @@ class _LoginpageWidgetState extends State<LoginpageWidget> {
                               Text(
                                 'Welcome Back',
                                 textAlign: TextAlign.start,
-                                style:
-                                    FlutterFlowTheme.of(context).displaySmall,
+                                style: FlutterFlowTheme.of(context)
+                                    .displaySmall
+                                    .override(
+                                      fontFamily: 'Inter',
+                                      letterSpacing: 0.0,
+                                    ),
                               ),
                               Padding(
                                 padding: const EdgeInsetsDirectional.fromSTEB(
@@ -128,8 +117,12 @@ class _LoginpageWidgetState extends State<LoginpageWidget> {
                                 child: Text(
                                   'Let\'s get started by filling out the form below.',
                                   textAlign: TextAlign.start,
-                                  style:
-                                      FlutterFlowTheme.of(context).labelMedium,
+                                  style: FlutterFlowTheme.of(context)
+                                      .labelMedium
+                                      .override(
+                                        fontFamily: 'Readex Pro',
+                                        letterSpacing: 0.0,
+                                      ),
                                 ),
                               ),
                               Padding(
@@ -138,11 +131,16 @@ class _LoginpageWidgetState extends State<LoginpageWidget> {
                                 child: TextFormField(
                                   controller: _model.emailTextController,
                                   focusNode: _model.textFieldFocusNode1,
+                                  autofocus: false,
                                   obscureText: false,
                                   decoration: InputDecoration(
                                     labelText: 'Email',
-                                    hintStyle:
-                                        FlutterFlowTheme.of(context).bodyLarge,
+                                    hintStyle: FlutterFlowTheme.of(context)
+                                        .bodyLarge
+                                        .override(
+                                          fontFamily: 'Inter',
+                                          letterSpacing: 0.0,
+                                        ),
                                     enabledBorder: OutlineInputBorder(
                                       borderSide: BorderSide(
                                         color: FlutterFlowTheme.of(context)
@@ -173,7 +171,12 @@ class _LoginpageWidgetState extends State<LoginpageWidget> {
                                       borderRadius: BorderRadius.circular(12.0),
                                     ),
                                   ),
-                                  style: FlutterFlowTheme.of(context).bodyLarge,
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyLarge
+                                      .override(
+                                        fontFamily: 'Inter',
+                                        letterSpacing: 0.0,
+                                      ),
                                   validator: _model.emailTextControllerValidator
                                       .asValidator(context),
                                 ),
@@ -184,11 +187,16 @@ class _LoginpageWidgetState extends State<LoginpageWidget> {
                                 child: TextFormField(
                                   controller: _model.passwordTextController,
                                   focusNode: _model.textFieldFocusNode2,
+                                  autofocus: false,
                                   obscureText: !_model.passwordVisibility,
                                   decoration: InputDecoration(
                                     labelText: 'Password',
-                                    hintStyle:
-                                        FlutterFlowTheme.of(context).bodyLarge,
+                                    hintStyle: FlutterFlowTheme.of(context)
+                                        .bodyLarge
+                                        .override(
+                                          fontFamily: 'Inter',
+                                          letterSpacing: 0.0,
+                                        ),
                                     enabledBorder: OutlineInputBorder(
                                       borderSide: BorderSide(
                                         color: FlutterFlowTheme.of(context)
@@ -234,7 +242,12 @@ class _LoginpageWidgetState extends State<LoginpageWidget> {
                                       ),
                                     ),
                                   ),
-                                  style: FlutterFlowTheme.of(context).bodyLarge,
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyLarge
+                                      .override(
+                                        fontFamily: 'Inter',
+                                        letterSpacing: 0.0,
+                                      ),
                                   validator: _model
                                       .passwordTextControllerValidator
                                       .asValidator(context),
@@ -277,6 +290,7 @@ class _LoginpageWidgetState extends State<LoginpageWidget> {
                                         .override(
                                           fontFamily: 'Readex Pro',
                                           color: Colors.white,
+                                          letterSpacing: 0.0,
                                         ),
                                     elevation: 3.0,
                                     borderRadius: BorderRadius.circular(12.0),
@@ -287,8 +301,19 @@ class _LoginpageWidgetState extends State<LoginpageWidget> {
                                 padding: const EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 0.0, 16.0),
                                 child: FFButtonWidget(
-                                  onPressed: () {
-                                    print('Button pressed ...');
+                                  onPressed: () async {
+                                    logFirebaseEvent(
+                                        'LOGINLOG_IN_WITH_GOOGLE_BTN_ON_TAP');
+                                    logFirebaseEvent('Button_auth');
+                                    GoRouter.of(context).prepareAuthEvent();
+                                    final user = await authManager
+                                        .signInWithGoogle(context);
+                                    if (user == null) {
+                                      return;
+                                    }
+
+                                    context.goNamedAuth(
+                                        'HomePage', context.mounted);
                                   },
                                   text: 'Log In with Google',
                                   icon: const FaIcon(
@@ -308,6 +333,7 @@ class _LoginpageWidgetState extends State<LoginpageWidget> {
                                         .bodyMedium
                                         .override(
                                           fontFamily: 'Inter',
+                                          letterSpacing: 0.0,
                                           fontWeight: FontWeight.bold,
                                         ),
                                     elevation: 0.0,
@@ -335,8 +361,8 @@ class _LoginpageWidgetState extends State<LoginpageWidget> {
                                     context.pushNamed('createaccount');
                                   },
                                   child: RichText(
-                                    textScaleFactor:
-                                        MediaQuery.of(context).textScaleFactor,
+                                    textScaler:
+                                        MediaQuery.of(context).textScaler,
                                     text: TextSpan(
                                       children: [
                                         TextSpan(
@@ -348,6 +374,7 @@ class _LoginpageWidgetState extends State<LoginpageWidget> {
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .primaryText,
+                                                letterSpacing: 0.0,
                                                 fontWeight: FontWeight.normal,
                                               ),
                                         ),
@@ -361,7 +388,11 @@ class _LoginpageWidgetState extends State<LoginpageWidget> {
                                         )
                                       ],
                                       style: FlutterFlowTheme.of(context)
-                                          .bodyMedium,
+                                          .bodyMedium
+                                          .override(
+                                            fontFamily: 'Inter',
+                                            letterSpacing: 0.0,
+                                          ),
                                     ),
                                   ),
                                 ),

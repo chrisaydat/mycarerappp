@@ -114,7 +114,6 @@ final parametersBuilderMap =
   'termsofservicescreen': ParameterData.none(),
   'caregiversscreen': ParameterData.none(),
   'supportpage': ParameterData.none(),
-  'chooserole': ParameterData.none(),
   'caregiverdetailspage': (data) async => ParameterData(
         allParams: {
           'caregiversRef':
@@ -124,6 +123,7 @@ final parametersBuilderMap =
   'chatspage': ParameterData.none(),
   'messages': ParameterData.none(),
   'paymentdetailspage': ParameterData.none(),
+  'mapviewpage': ParameterData.none(),
 };
 
 Map<String, dynamic> getInitialParameterData(Map<String, dynamic> data) {

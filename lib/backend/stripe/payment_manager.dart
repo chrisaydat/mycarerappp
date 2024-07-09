@@ -11,12 +11,12 @@ import '../../flutter_flow/flutter_flow_util.dart';
 import '../../flutter_flow/flutter_flow_widgets.dart';
 import '../cloud_functions/cloud_functions.dart';
 
-const _isProd = false;
+const _isProd = true;
 
 // Stripe Credentials
-const _kProdStripePublishableKey = '';
-const _kTestStripePublishableKey =
-    'pk_test_51JeKjGKqLaeFV3jB59f791KuD2OQxAoWa5S03TzzUclgkSDdMZzaPyoOYs95ZfNFt7lYhFjoNgfQ3T5TSxaWBJ1r00Ma3ncvT8';
+const _kProdStripePublishableKey =
+    'pk_live_51OZDgUD7gs0BmCfoCa4sYwUaQbWa4hSCKRLNEfqx6IzRmDyxVwJV0BOaDySEaryuITcsSo2n0hgqKP8W1yjYjuMk00i2epXVDY';
+const _kTestStripePublishableKey = '';
 const _kAppleMerchantId = '';
 
 String stripePublishableKey() =>
@@ -245,17 +245,32 @@ Future<StripePaymentResponse> showWebPaymentSheet(
                     const SizedBox(height: 20.0),
                     FFButtonWidget(
                       onPressed: () async {
-                        final response = await Stripe.instance.confirmPayment(
-                          paymentIntentClientSecret: paymentIntentSecret,
-                          data: const PaymentMethodParams.card(
-                            paymentMethodData: PaymentMethodData(),
-                          ),
-                          options: const PaymentMethodOptions(),
-                        );
-                        if (response.status == PaymentIntentsStatus.Succeeded) {
+                        try {
+                          final response = await Stripe.instance.confirmPayment(
+                            paymentIntentClientSecret: paymentIntentSecret,
+                            data: const PaymentMethodParams.card(
+                              paymentMethodData: PaymentMethodData(),
+                            ),
+                            options: const PaymentMethodOptions(),
+                          );
+                          if (response.status ==
+                              PaymentIntentsStatus.Succeeded) {
+                            Navigator.pop(
+                              context,
+                              StripePaymentResponse(paymentId: paymentId),
+                            );
+                          }
+                        } catch (e) {
+                          if (e is StripeException &&
+                              e.error.code == FailureCode.Canceled) {
+                            Navigator.pop(
+                              context,
+                              const StripePaymentResponse(),
+                            );
+                          }
                           Navigator.pop(
                             context,
-                            StripePaymentResponse(paymentId: paymentId),
+                            StripePaymentResponse(errorMessage: '$e'),
                           );
                         }
                       },

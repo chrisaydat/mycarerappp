@@ -3,9 +3,9 @@ import 'dart:async';
 import 'package:collection/collection.dart';
 
 import '/backend/schema/util/firestore_util.dart';
-import '/backend/schema/util/schema_util.dart';
 
 import 'index.dart';
+import '/flutter_flow/flutter_flow_util.dart';
 
 class UserDetailsRecord extends FirestoreRecord {
   UserDetailsRecord._(
@@ -35,11 +35,17 @@ class UserDetailsRecord extends FirestoreRecord {
   bool get client => _client ?? false;
   bool hasClient() => _client != null;
 
+  // "displayName" field.
+  String? _displayName;
+  String get displayName => _displayName ?? '';
+  bool hasDisplayName() => _displayName != null;
+
   void _initializeFields() {
     _email = snapshotData['email'] as String?;
     _image = snapshotData['image'] as String?;
     _caregiver = snapshotData['caregiver'] as bool?;
     _client = snapshotData['client'] as bool?;
+    _displayName = snapshotData['displayName'] as String?;
   }
 
   static CollectionReference get collection =>
@@ -81,6 +87,7 @@ Map<String, dynamic> createUserDetailsRecordData({
   String? image,
   bool? caregiver,
   bool? client,
+  String? displayName,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -88,6 +95,7 @@ Map<String, dynamic> createUserDetailsRecordData({
       'image': image,
       'caregiver': caregiver,
       'client': client,
+      'displayName': displayName,
     }.withoutNulls,
   );
 
@@ -102,12 +110,13 @@ class UserDetailsRecordDocumentEquality implements Equality<UserDetailsRecord> {
     return e1?.email == e2?.email &&
         e1?.image == e2?.image &&
         e1?.caregiver == e2?.caregiver &&
-        e1?.client == e2?.client;
+        e1?.client == e2?.client &&
+        e1?.displayName == e2?.displayName;
   }
 
   @override
-  int hash(UserDetailsRecord? e) =>
-      const ListEquality().hash([e?.email, e?.image, e?.caregiver, e?.client]);
+  int hash(UserDetailsRecord? e) => const ListEquality()
+      .hash([e?.email, e?.image, e?.caregiver, e?.client, e?.displayName]);
 
   @override
   bool isValidKey(Object? o) => o is UserDetailsRecord;

@@ -13,8 +13,6 @@ class CaregiverdetailspageModel
   // Stores action output result for [Stripe Payment] action in Button widget.
   String? paymentId;
 
-  /// Initialization and disposal methods.
-
   @override
   void initState(BuildContext context) {
     calendarSelectedDay = DateTimeRange(
@@ -27,8 +25,4 @@ class CaregiverdetailspageModel
   void dispose() {
     unfocusNode.dispose();
   }
-
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
 }

@@ -3,15 +3,24 @@ import 'editprofilescreen_widget.dart' show EditprofilescreenWidget;
 import 'package:flutter/material.dart';
 
 class EditprofilescreenModel extends FlutterFlowModel<EditprofilescreenWidget> {
-  /// Initialization and disposal methods.
+  ///  State fields for stateful widgets in this page.
+
+  bool isDataUploading = false;
+  FFUploadedFile uploadedLocalFile =
+      FFUploadedFile(bytes: Uint8List.fromList([]));
+  String uploadedFileUrl = '';
+
+  // State field(s) for TextField widget.
+  FocusNode? textFieldFocusNode;
+  TextEditingController? textController;
+  String? Function(BuildContext, String?)? textControllerValidator;
 
   @override
   void initState(BuildContext context) {}
 
   @override
-  void dispose() {}
-
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
+  void dispose() {
+    textFieldFocusNode?.dispose();
+    textController?.dispose();
+  }
 }

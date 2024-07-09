@@ -2,7 +2,6 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 import 'bookingsuccessful_model.dart';
 export 'bookingsuccessful_model.dart';
 
@@ -10,7 +9,7 @@ class BookingsuccessfulWidget extends StatefulWidget {
   const BookingsuccessfulWidget({super.key});
 
   @override
-  _BookingsuccessfulWidgetState createState() =>
+  State<BookingsuccessfulWidget> createState() =>
       _BookingsuccessfulWidgetState();
 }
 
@@ -27,8 +26,6 @@ class _BookingsuccessfulWidgetState extends State<BookingsuccessfulWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => BookingsuccessfulModel());
-
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -40,8 +37,6 @@ class _BookingsuccessfulWidgetState extends State<BookingsuccessfulWidget> {
 
   @override
   Widget build(BuildContext context) {
-    context.watch<FFAppState>();
-
     return Column(
       mainAxisSize: MainAxisSize.max,
       mainAxisAlignment: MainAxisAlignment.center,
@@ -130,6 +125,7 @@ class _BookingsuccessfulWidgetState extends State<BookingsuccessfulWidget> {
                               FlutterFlowTheme.of(context).bodyMedium.override(
                                     fontFamily: 'Inter',
                                     fontSize: 20.0,
+                                    letterSpacing: 0.0,
                                     fontWeight: FontWeight.w800,
                                   ),
                         ),
@@ -149,6 +145,7 @@ class _BookingsuccessfulWidgetState extends State<BookingsuccessfulWidget> {
                               FlutterFlowTheme.of(context).bodyMedium.override(
                                     fontFamily: 'Inter',
                                     fontSize: 16.0,
+                                    letterSpacing: 0.0,
                                     fontWeight: FontWeight.normal,
                                   ),
                         ),
@@ -167,6 +164,7 @@ class _BookingsuccessfulWidgetState extends State<BookingsuccessfulWidget> {
                               FlutterFlowTheme.of(context).bodyMedium.override(
                                     fontFamily: 'Inter',
                                     fontSize: 16.0,
+                                    letterSpacing: 0.0,
                                     fontWeight: FontWeight.normal,
                                   ),
                         ),
@@ -206,6 +204,7 @@ class _BookingsuccessfulWidgetState extends State<BookingsuccessfulWidget> {
                             FlutterFlowTheme.of(context).titleSmall.override(
                                   fontFamily: 'Readex Pro',
                                   color: Colors.white,
+                                  letterSpacing: 0.0,
                                 ),
                         elevation: 3.0,
                         borderSide: const BorderSide(
